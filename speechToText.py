@@ -24,7 +24,7 @@ def main():
             print("Error :  " + str(e))
 
         # write audio
-        with open("recorded.wav", "wb") as f:
+        with open("recording.wav", "wb") as f:
             f.write(audio.get_wav_data())
 
 
