@@ -1,32 +1,15 @@
 import speech_recognition as sr
 
+# get audio from the microphone
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Speak:")
+    audio = r.listen(source)
 
-def main():
+try:
+    print("You said " + r.recognize_google(audio))
+except sr.UnknownValueError:
+    print("Could not understand audio")
+except sr.RequestError as e:
+    print("Could not request results; {0}".format(e))
 
-    r = sr.Recognizer()
-
-    with sr.Microphone() as source:
-        r.adjust_for_ambient_noise(source)
-
-        print("Please say something")
-
-        audio = r.listen(source)
-
-        print("Recognizing Now .... ")
-
-        # recognize speech using google
-
-        try:
-            print("You have said \n" + r.recognize_google(audio))
-            print("Audio Recorded Successfully \n ")
-
-        except Exception as e:
-            print("Error :  " + str(e))
-
-        # write audio
-        with open("recording.wav", "wb") as f:
-            f.write(audio.get_wav_data())
-
-
-if __name__ == "__main__":
-    main()
