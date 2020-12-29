@@ -27,5 +27,10 @@ def index():
     return render_template('upload.html', transcript=transcript)
 
 
+@app.route('/recordwav')
+def recordwav():
+    return render_template('index.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
