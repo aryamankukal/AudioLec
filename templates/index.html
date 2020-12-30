@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 
+<!--js and css links-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +13,18 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://stephino.github.io/dist/recorder.js"></script>
     <script src="{{url_for('static', filename='scripts/recorder.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/index.js')}}"></script>
+
 </head>
 
 <body>
 
+<!--gradient animated background-->
+
     <div class="wrapper"></div>
+
+<!--recording button -->
+
     <div class="holder">
         <div data-role="controls" class="controls">
             <button class="notRec" id="recordingButton" onclick="startRecording()"></button>
@@ -23,7 +32,8 @@
         <div data-role="recordings"></div>
     </div>
 
-    <script src="{{url_for('static', filename='scripts/index.js')}}"></script>
+<!--js link continued-->
+
 </body>
 
 </html>

@@ -36,22 +36,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# body {
-#             position: absolute;
-#             display: -webkit-box;
-#             display: -webkit-flex;
-#             display: -ms-flexbox;
-#             display: flex;
-#             -webkit-box-pack: center;
-#             -webkit-justify-content: center;
-#             -ms-flex-pack: center;
-#             justify-content: center;
-#             -webkit-box-align: center;
-#             -webkit-align-items: center;
-#             -ms-flex-align: center;
-#             align-items: center;
-#             height: 100%;
-#             width: 100%;
-#             margin: 0;
-#         }
