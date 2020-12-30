@@ -3,7 +3,7 @@ button {
     height: 70px;
     font-size: 0;
     background-color: red;
-    border: 0;
+    border: none;
     border-radius: 35px;
     border-color: transparent;
     margin: 18px;
@@ -32,11 +32,17 @@ button {
     height: 70px;
     font-size: 0;
     background-color: red;
-    border: 0;
+    border: none;
     border-radius: 35px;
     /* margin: 18px; */
     outline: none;
     z-index: 99;
+}
+
+.controls {
+    outline: none;
+    border: none;
+    border-color: transparent;
 }
 
 @keyframes pulse {
