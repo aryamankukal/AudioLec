@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
-import GoogleNLPAPI
+import GoogleNLPAPI as api
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
@@ -24,7 +24,8 @@ def delscript():
 
 @app.route('/textanalysis')
 def textanalysis():
-    return render_template('textanalysis.html', session=session)
+    rawjson = api.sample_analyze_entities(session['transcript'])
+    return render_template('textanalysis.html', session=session, rawjson=rawjson)
 
 
 @app.route('/convertwav', methods=['GET', 'POST'])

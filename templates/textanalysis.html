@@ -8,14 +8,18 @@
 </head>
 
 <body>
-    {% if 'transcript' in session %}
-    <h1>{{session['transcript']}}</h1>
-    <form action="/delscript" method='POST'>
-        <button>Delete transcript</button>
-    </form>
-    {% else %}
-    <a href="/convertwav">get a transcript</a>
-    {% endif %}
+    <!--{% if 'transcript' in session %}-->
+    <!--<h1>{{session['transcript']}}</h1>-->
+    <!--<form action="/delscript" method='POST'>-->
+        <!--<button>Delete transcript</button>-->
+    <!--</form>-->
+    <!--{% else %}-->
+    <!--<a href="/convertwav">get a transcript</a>-->
+    <!--{% endif %}-->
+
+    <p>
+        {{rawjson}}
+    </p>
 </body>
 
 </html>
