@@ -62,7 +62,7 @@ jQuery(document).ready(function () {
         }
     };
 
-    // Prepare the recordings list
+    // Prepare the list
     var listObject = $('[data-role="recordings"]');
 
     // Prepare the record button

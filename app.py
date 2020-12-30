@@ -8,9 +8,11 @@ app = Flask(__name__)
 def homepage():
     return render_template('homepage.html')
 
+
 @app.route('/')
 def recordwav():
     return render_template('index.html')
+
 
 @app.route('/recordwav', methods=['GET', 'POST'])
 def index():
@@ -33,8 +35,6 @@ def index():
             transcript = recognizer.recognize_google(data, key=None)
 
     return render_template('upload.html', transcript=transcript)
-
-
 
 
 if __name__ == '__main__':
