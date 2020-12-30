@@ -3,17 +3,16 @@ button {
     height: 70px;
     font-size: 0;
     background-color: red;
-    border: none;
     border-radius: 35px;
-    border-color: transparent;
     margin: 18px;
-    outline: none;
     z-index: 99;
     position: absolute;
     left: 47%;
     top: 41%;
-    
+
 }
+
+
 
 .notRec {
     background-color: darkred;
@@ -21,6 +20,11 @@ button {
     border: none;
     outline: none;
     z-index: 99;
+
+}
+
+.Rec:focus{
+    outline: none
 }
 
 .Rec {
