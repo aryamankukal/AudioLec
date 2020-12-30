@@ -68,9 +68,9 @@ button {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1,#FFDC18, #ff3200, #ff6ec0);
+    background: linear-gradient(45deg, #ff6666, #ff7575, #ff8282, #ff8f8f, #ff9999, #ffabab);
     background-size: 600% 100%;
-    animation: gradient 30s linear infinite;
+    animation: gradient 15s linear infinite;
     animation-direction: alternate;
     outline: none;
     /* margin-top: -25px; */
