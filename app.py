@@ -4,7 +4,12 @@ import speech_recognition as sr
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/')
+def recordwav():
+    return render_template('index.html')
+
+@app.route('/recordwav', methods=['GET', 'POST'])
 def index():
     transcript = ""
     if request.method == "POST":
@@ -27,10 +32,26 @@ def index():
     return render_template('upload.html', transcript=transcript)
 
 
-@app.route('/recordwav')
-def recordwav():
-    return render_template('index.html')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# body {
+#             position: absolute;
+#             display: -webkit-box;
+#             display: -webkit-flex;
+#             display: -ms-flexbox;
+#             display: flex;
+#             -webkit-box-pack: center;
+#             -webkit-justify-content: center;
+#             -ms-flex-pack: center;
+#             justify-content: center;
+#             -webkit-box-align: center;
+#             -webkit-align-items: center;
+#             -ms-flex-align: center;
+#             align-items: center;
+#             height: 100%;
+#             width: 100%;
+#             margin: 0;
+#         }
