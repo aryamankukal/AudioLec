@@ -16,6 +16,7 @@ button {
 
 .notRec {
     background-color: darkred;
+    border: none;
     outline: none;
     z-index: 99;
 }
@@ -59,6 +60,7 @@ button {
     background-size: 600% 100%;
     animation: gradient 30s linear infinite;
     animation-direction: alternate;
+    outline: none;
     /* margin-top: -25px; */
     z-index: -2;
 
