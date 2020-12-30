@@ -4,6 +4,9 @@ import speech_recognition as sr
 app = Flask(__name__)
 
 
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
 
 @app.route('/')
 def recordwav():
