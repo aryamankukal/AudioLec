@@ -4,18 +4,18 @@ import speech_recognition as sr
 app = Flask(__name__)
 
 
-@app.route('/homepage')
-def homepage():
-    return render_template('homepagenew.html')
-
-
 @app.route('/')
-def recordwav():
+def index():
     return render_template('index.html')
 
 
-@app.route('/recordwav', methods=['GET', 'POST'])
-def index():
+@app.route('/record')
+def record():
+    return render_template('record.html')
+
+
+@app.route('/convertwav', methods=['GET', 'POST'])
+def convertwav():
     transcript = ""
     if request.method == "POST":
         print("FORM DATA RECEIVED")
@@ -34,7 +34,7 @@ def index():
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
 
-    return render_template('upload.html', transcript=transcript)
+    return render_template('convertwav.html', transcript=transcript)
 
 
 if __name__ == '__main__':
