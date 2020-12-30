@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
+import GoogleNLPAPI
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
