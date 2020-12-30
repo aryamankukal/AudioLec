@@ -16,6 +16,7 @@ button {
 
 .notRec {
     background-color: darkred;
+    outline: none;
     z-index: 99;
 }
 
@@ -51,17 +52,17 @@ button {
 
 
 .wrapper {
-        width: 100%;
-        height: 500%;
-        position: absolute;
-        background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1,#FFDC18, #ff3200, #ff6ec0);
-        background-size: 600% 100%;
-        animation: gradient 30s linear infinite;
-        animation-direction: alternate;
-        margin-top: -25px;
-        z-index: -2;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1,#FFDC18, #ff3200, #ff6ec0);
+    background-size: 600% 100%;
+    animation: gradient 30s linear infinite;
+    animation-direction: alternate;
+    /* margin-top: -25px; */
+    z-index: -2;
 
-    }
+}
 
 @keyframes gradient {
     0% {background-position: 0%}
