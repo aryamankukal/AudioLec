@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
                             .attr('download', new Date().toUTCString() + '.wav');
 
                         // Wrap everything in a row
-                        var holderObject = $('<div class="row"></div>')
+                        var holderObject = $('<div class="row" style="margin: 0px;"></div>')
                             .append(audioObject)
                             .append(downloadObject);
 
