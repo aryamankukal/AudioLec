@@ -13,7 +13,6 @@ def index():
 def record():
     return render_template('record.html')
 
-
 @app.route('/convertwav', methods=['GET', 'POST'])
 def convertwav():
     transcript = ""
