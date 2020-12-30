@@ -5,6 +5,7 @@ button {
     background-color: red;
     border: 0;
     border-radius: 35px;
+    border-color: transparent;
     margin: 18px;
     outline: none;
     z-index: 99;
@@ -16,6 +17,7 @@ button {
 
 .notRec {
     background-color: darkred;
+    border-color: transparent;
     border: none;
     outline: none;
     z-index: 99;
