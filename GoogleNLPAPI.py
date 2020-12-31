@@ -12,5 +12,7 @@ def sample_analyze_entities(text_content):
     encoding_type = language_v1.EncodingType.UTF8
     response = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type})
 
+    entities = []
     for entity in response.entities:
-        return format(entity.name)
+        entities.append(entity.name)
+        return entities

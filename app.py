@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
 import GoogleNLPAPI as api
-import summarizer as summ
+# import summarizer as summ
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
@@ -50,9 +50,9 @@ def convertwav():
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
-            summary = summ.summarizer(transcript)
-            session['summary'] = summary
-            keywords = api.sample_analyze_entities(summary)
+            # summary = summ.summarizer(transcript)
+            # session['summary'] = summary
+            keywords = api.sample_analyze_entities(transcript)
             session['keywords'] = keywords
             return redirect('/textanalysis')
 
