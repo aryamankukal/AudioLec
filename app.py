@@ -52,7 +52,7 @@ def convertwav():
             session['transcript'] = transcript
             summary = summ.summarizer(transcript)
             session['summary'] = summary
-            keywords = api.sample_analyze_entities(transcript)
+            keywords = api.sample_analyze_entities(summary)
             session['keywords'] = keywords
             return redirect('/textanalysis')
 
