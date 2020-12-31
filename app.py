@@ -17,9 +17,11 @@ def record():
     return render_template('record.html')
 
 
-@app.route('/delscript', methods=['GET', 'POST'])
+@app.route('/delsession', methods=['GET', 'POST'])
 def delscript():
     session.pop('transcript', None)
+    session.pop('summary', None)
+    session.pop('keywords', None)
     return redirect('/convertwav')
 
 
