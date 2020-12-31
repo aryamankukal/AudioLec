@@ -1,9 +1,8 @@
 from google.cloud import language_v1
 
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gkukal/Documents/JGAryaman/GoogleAPIKey/NLPForHacks-b2a763718dea.json"
-
-from google.cloud import language_v1
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gkukal/PycharmProjects/HackTheLib/googleNLPAPIcodes.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "googleNLPAPIcodes.json"
 
 def sample_analyze_entities(text_content):
     client = language_v1.LanguageServiceClient()
