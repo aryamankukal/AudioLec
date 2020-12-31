@@ -23,8 +23,8 @@
     <h1>
         <!--{{session['summary']}}-->
     </h1>
-    {% for keyword in session['keywords'] %}
-    <h1>{{keyword}}</h1>
+    {% for keyword in keywords %}
+    <p>{{keyword}}</p>
     {% endfor %}
     <a href="/delsession">delete session details</a>
 </body>

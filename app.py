@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
 import GoogleNLPAPI as api
+import getYoutubeVideoLinks as getYT
+
 # import summarizer as summ
 
 app = Flask(__name__)
@@ -27,7 +29,8 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
-    return render_template('textanalysis.html', session=session)
+    keywords = api.sample_analyze_entities(session['transcript'])
+    return render_template('textanalysis.html', session=session, keywords=keywords)
 
 
 @app.route('/convertwav', methods=['GET', 'POST'])
@@ -52,8 +55,6 @@ def convertwav():
             session['transcript'] = transcript
             # summary = summ.summarizer(transcript)
             # session['summary'] = summary
-            keywords = api.sample_analyze_entities(transcript)
-            session['keywords'] = keywords
             return redirect('/textanalysis')
 
     return render_template('convertwav.html', transcript=transcript)
