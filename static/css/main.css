@@ -2708,7 +2708,6 @@ input, select, textarea {
 			-webkit-flex-direction: row-reverse;
 			-ms-flex-direction: row-reverse;
 			flex-direction: row-reverse;
-			background-color:
 		}
 
 		.spotlight:nth-child(1) {
