@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
 import GoogleNLPAPI as api
+import summarizer as summ
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
@@ -52,6 +53,7 @@ def convertwav():
             session['transcript'] = transcript
 
     return render_template('convertwav.html', transcript=transcript)
+
 
 
 if __name__ == '__main__':
