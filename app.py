@@ -24,6 +24,8 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
+    if 'transcript' not in session:
+        return 'you need a transcript'
     rawjson = api.sample_analyze_entities(session['transcript'])
     return render_template('textanalysis.html', session=session, rawjson=rawjson)
 
