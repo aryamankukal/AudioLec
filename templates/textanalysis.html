@@ -11,14 +11,20 @@
     <!--{% if 'transcript' in session %}-->
     <!--<h1>{{session['transcript']}}</h1>-->
     <!--<form action="/delscript" method='POST'>-->
-        <!--<button>Delete transcript</button>-->
+    <!--<button>Delete transcript</button>-->
     <!--</form>-->
     <!--{% else %}-->
     <!--<a href="/convertwav">get a transcript</a>-->
     <!--{% endif %}-->
 
     <h1>
-        {{rawjson}}
+        {{session['transcript']}}
+    </h1>
+    <h1>
+        {{session['summary']}}
+    </h1>
+    <h1>
+        {{session['keywords']}}
     </h1>
 </body>
 

@@ -25,10 +25,7 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
-    if 'transcript' not in session:
-        return 'you need a transcript'
-    rawjson = api.sample_analyze_entities(session['transcript'])
-    return render_template('textanalysis.html', session=session, rawjson=rawjson)
+    return render_template('textanalysis.html', session=session)
 
 
 @app.route('/convertwav', methods=['GET', 'POST'])
@@ -51,9 +48,13 @@ def convertwav():
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
+            summary = summ.summarizer(transcript)
+            session['summary'] = summary
+            keywords = api.sample_analyze_entities(transcript)
+            session['keywords'] = keywords
+            return redirect('/textanalysis')
 
     return render_template('convertwav.html', transcript=transcript)
-
 
 
 if __name__ == '__main__':
