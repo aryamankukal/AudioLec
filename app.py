@@ -22,7 +22,7 @@ def delscript():
     return redirect('/convertwav')
 
 
-@app.route('/textanalysis')
+@app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
     rawjson = api.sample_analyze_entities(session['transcript'])
     return render_template('textanalysis.html', session=session, rawjson=rawjson)
@@ -54,4 +54,3 @@ def convertwav():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
