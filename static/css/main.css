@@ -2487,7 +2487,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ed4933;
+			background-color: #db4f4f;
 			box-shadow: none !important;
 			color: #ffffff !important;
 		}
@@ -2497,7 +2497,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #ef5e4a !important;
+				background-color: #ff5e5e !important;
 			}
 
 			input[type="submit"].primary:active,
@@ -2552,6 +2552,9 @@ input, select, textarea {
 		list-style: none;
 		padding: 0;
 		width: 100%;
+		border: 2px solid #a63030;
+		border-radius: 5%;
+		overflow: hidden;
 	}
 
 		.features li {
@@ -2560,14 +2563,17 @@ input, select, textarea {
 			position: relative;
 			text-align: left;
 			width: 50%;
+
 		}
 
 			.features li:nth-child(1) {
 				background-color: rgba(0, 0, 0, 0.035);
+
 			}
 
 			.features li:nth-child(2) {
 				background-color: rgba(0, 0, 0, 0.07);
+
 			}
 
 			.features li:nth-child(3) {
@@ -2580,10 +2586,12 @@ input, select, textarea {
 
 			.features li:nth-child(5) {
 				background-color: rgba(0, 0, 0, 0.175);
+
 			}
 
 			.features li:nth-child(6) {
 				background-color: rgba(0, 0, 0, 0.21);
+
 			}
 
 			.features li:nth-child(7) {
@@ -2700,6 +2708,7 @@ input, select, textarea {
 			-webkit-flex-direction: row-reverse;
 			-ms-flex-direction: row-reverse;
 			flex-direction: row-reverse;
+			background-color:
 		}
 
 		.spotlight:nth-child(1) {
@@ -2817,7 +2826,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
+			background-color: #db4f4f;
 			color: #c8ece9;
 		}
 
@@ -2976,12 +2985,12 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background-color: #2e3842;
+			background-color: #242b33;
 		}
 
 		.wrapper.style3 {
-			background-color: #505393;
-			color: #d3d4e4;
+			background-color: #db4f4f;
+			color: #ffffff;
 		}
 
 			.wrapper.style3 strong, .wrapper.style3 b {
@@ -3013,7 +3022,7 @@ input, select, textarea {
 			}
 
 			.wrapper.style3 header.major p {
-				color: #d3d4e4;
+				color: #ffffff;
 			}
 
 			.wrapper.style3 label {
@@ -3351,7 +3360,7 @@ input, select, textarea {
 		-ms-transition: -ms-transform 0.5s ease;
 		transition: transform 0.5s ease;
 		-webkit-overflow-scrolling: touch;
-		background: #21b2a6;
+		background: #db4f4f;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
