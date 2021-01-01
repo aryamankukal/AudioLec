@@ -7,11 +7,16 @@ button {
     border-width: 1px;
     vertical-align: center;
     position: absolute;
+<<<<<<< HEAD
     left: 41%;
     left: 40%;
     top: 35%;
     outline: none;
     margin-top: 10px;
+=======
+    left: 40%;
+    top: 35%;
+>>>>>>> 328ffbfcccbdf687f91375c6578bfee43eadda14
 }
 
 
@@ -62,6 +67,10 @@ button {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 328ffbfcccbdf687f91375c6578bfee43eadda14
 .center {
     height: 400px;
     width: 300px;
