@@ -404,8 +404,10 @@
 					<p>Class Lectures. But simpler.</p>
 				</header>
 				<ul class="actions stacked">
-					<li><a href="/record" class="button primary">Start Recording</a></li>
-					<li><a href="#" class="button primary">Contact Us</a></li>
+					<div style="width: 250px;">
+						<li><a href="/record" class="button primary" style="width: 100%;">Start Recording</a></li>
+						<li><a href="#footer" class="button primary" style="width: 100%;">Contact Us</a></li>
+					</div>
 				</ul>
 			</div>
 		</section>
@@ -421,9 +423,11 @@
 				<form action="/contactform" style="margin: auto;" method="POST">
 					{% if session['email_sent'] == True %}
 					<h1>Success, email sent</h1>
+					{% elif session['valid'] == False %}
+					<h1>Please fill out the whole form</h1>
 					{% endif %}
-					<div style="display: flex;">
-						<div style="margin-right: 20px; margin-left: 53px;">
+					<div style="display: flex; justify-content: center;">
+						<div style="margin-right: 10px;">
 							<label for="">Email</label>
 							<input type="text" class="contactme" name="email">
 							<br>
@@ -434,7 +438,7 @@
 							<input type="text" class="contactme" name="subject">
 							<br>
 						</div>
-						<div style="margin-right: 40px; margin-left: 20px;">
+						<div style="margin-left: 10px;">
 							<label for="">How Can We Help You?</label>
 							<input type="text" class="contactme" name="message"
 								style="height: 300px; padding-bottom: 250px;">

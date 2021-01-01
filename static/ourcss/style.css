@@ -65,7 +65,7 @@ button {
 }
 
 
-.wrapper {
+/* .wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -74,13 +74,22 @@ button {
     animation: gradient 15s linear infinite;
     animation-direction: alternate;
     outline: none;
-    /* margin-top: -25px; */
+    margin-top: -25px;
     z-index: -2;
 }
 
 @keyframes gradient {
     0% {background-position: 0%}
     100% {background-position: 100%}
+} */
+
+.holder {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    margin: auto;
+    vertical-align: center;
+    background-color: #1d242a;
 }
 
 .logo {
