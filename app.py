@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
@@ -58,6 +58,13 @@ def convertwav():
             return redirect('/textanalysis')
 
     return render_template('convertwav.html', transcript=transcript)
+
+
+@app.route('/contactform', methods=['GET', 'POST'])
+def contactform():
+    contactform = request.form
+    email = contactform.get(id)
+    return f"{email}"
 
 
 if __name__ == '__main__':

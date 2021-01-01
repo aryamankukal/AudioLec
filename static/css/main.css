@@ -3983,9 +3983,9 @@ input, select, textarea {
 		padding-top: 0;
 	}
 
-	body.landing #footer {
+	/* body.landing #footer {
 		background-color: ;
-	}
+	} */
 
 	body.is-mobile.landing #page-wrapper {
 		background: none;

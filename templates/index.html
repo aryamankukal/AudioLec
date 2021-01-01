@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html style="scroll-behavior: smooth;">
 
 <head>
 	<title>AudioLec</title>
@@ -155,10 +155,59 @@
 		.our-webcoderskull .cnt-block .follow-us li .fa:hover {
 			color: #025a8e;
 		}
+
+		#myBtn {
+			height: 50px;
+			width: 80px;
+			display: none;
+			position: fixed;
+			bottom: 15px;
+			right: 15px;
+			z-index: 99;
+			padding: 0px;
+			font-size: 18px;
+			border: none;
+			outline: none;
+			background-color: transparent;
+			color: white;
+			cursor: pointer;
+			border-radius: 4px;
+			vertical-align: middle;
+			display: table-cell;
+		}
+
+		#myBtn:hover {
+			height: 53px;
+			width: 83px;
+		}
+
+		.textarea {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			resize: both;
+			min-height: 40px;
+			line-height: 20px;
+			text-align: left;
+			padding: 10px;
+			background-color: rgba(144, 144, 144, 0.25);
+		}
+
+		.textarea[contenteditable]:empty::before {
+			content: "";
+			color: gray;
+
+		}
+
+		.contactme:focus {
+			outline: none;
+		}
 	</style>
 </head>
 
 <body class="landing is-preload">
+
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
@@ -175,7 +224,7 @@
 								<li><a href="/">Home</a></li>
 								<li><a href="/record">Record</a></li>
 								<li><a href="/convertwav">Upload Recording</a></li>
-								<li><a href="#">The Team</a></li>
+								<li><a href="#three">The Team</a></li>
 							</ul>
 						</div>
 					</li>
@@ -292,9 +341,12 @@
 					<ul class="row">
 						<li class="col-12 col-md-6 col-lg-3">
 							<div class="cnt-block equal-hight" style="height: 349px;">
-								<figure><img src="static/images/aryamanPic (1).jpg" class="img-responsive"
-										alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;" target=_blank; href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/">Aryaman <br> Kukal</a></h3>
+								<figure><img src="static/images/aryamanPic (1).jpg" class="img-responsive" alt="">
+								</figure>
+								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
+										target=_blank;
+										href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/">Aryaman <br>
+										Kukal</a></h3>
 								<p style="color: #ffffff;">Fullstack, Backend</p>
 								<!-- <ul class="follow-us clearfix">
 									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -307,7 +359,8 @@
 							<div class="cnt-block equal-hight" style="height: 349px;">
 								<figure><img src="http://www.webcoderskull.com/img/team1.png" class="img-responsive"
 										alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"  target=_blank; href="#">Joel <br> Johnson</a></h3>
+								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
+										target=_blank; href="#">Joel <br> Johnson</a></h3>
 								<p style="color: #ffffff;">Fullstack, Backend</p>
 								<!-- <ul class="follow-us clearfix">
 									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -320,7 +373,8 @@
 							<div class="cnt-block equal-hight" style="height: 349px;">
 								<figure><img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive"
 										alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;" target=_blank; href="http://www.webcoderskull.com/">Chaitya Jodhavat</a></h3>
+								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
+										target=_blank; href="http://www.webcoderskull.com/">Chaitya Jodhavat</a></h3>
 								<p style="color: #ffffff;">Frontend, UI/UX</p>
 								<!-- <ul class="follow-us clearfix">
 									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -331,9 +385,10 @@
 						</li>
 						<li class="col-12 col-md-6 col-lg-3">
 							<div class="cnt-block equal-hight" style="height: 349px;">
-								<figure><img src="static/images/sriramPic (1).jpg" width="auto" height="auto" class="img-responsive"
-										alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;" target=_blank; href="http://www.webcoderskull.com/">Sriram Natarajan</a></h3>
+								<figure><img src="static/images/sriramPic (1).jpg" width="auto" height="auto"
+										class="img-responsive" alt=""></figure>
+								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
+										target=_blank; href="http://www.webcoderskull.com/">Sriram Natarajan</a></h3>
 								<p style="color: #ffffff;">Frontend, UI/UX</p>
 								<!-- <ul class="follow-us clearfix">
 									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -356,29 +411,59 @@
 				</header>
 				<ul class="actions stacked">
 					<li><a href="/record" class="button primary">Start Recording</a></li>
-					<li style="width: 248px;"><a href="#" class="button fit">Contact Us</a></li>
+					<li><a href="#" class="button primary">Contact Us</a></li>
 				</ul>
 			</div>
 		</section>
 
 		<!-- Footer -->
-		<footer style="height: 600px;" id="footer">
+		<footer style="height: auto;" id="footer">
 			<ul class="icons">
 				<!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
 				<!--<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
 				<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
 				<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
 				<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
-				<p><a href="/" style="outline: 0; border: 0;">aryamankukal@gmail.com</a></p>
+				<form action="/contactform" style="width: 700px; margin: auto;" method="POST">
+					<p style="display: block;">Email<span class="textarea" role="textbox" id="email"
+							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
+							contenteditable></span></p>
+					<p style="display: block;">Subject<span class="textarea" role="textbox"
+							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
+							contenteditable></span></p>
+					<p style="display: block;">How can we help you?<span class="textarea" role="textbox"
+							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
+							contenteditable></span></p>
+					<input type="submit">
+				</form>
 			</ul>
 			<!--<ul class="copyright">-->
-				<!--&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;-->
-				<!--&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;-->
 			<!--</ul>-->
 		</footer>
 
 	</div>
 
+	<script>
+		var mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () { scrollFunction() };
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
 	<!-- Scripts -->
 	<script src="static/js/jquery.min.js"></script>
 	<script src="static/js/jquery.scrollex.min.js"></script>
