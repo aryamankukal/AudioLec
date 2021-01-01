@@ -4,13 +4,12 @@ button {
     font-size: 0;
     background-color: red;
     border-radius: 35px;
-    margin: 18px;
     z-index: 99;
-    position: absolute;
-    left: 47%;
-    top: 41%;
     border-width: 1px;
-
+    vertical-align: center;
+    position: absolute;
+    top: ;
+    left: 41%;
 }
 
 
@@ -42,6 +41,7 @@ button {
     /* margin: 18px; */
     outline: none;
     z-index: 99;
+    background-color: red;
 }
 
 .controls {
@@ -65,7 +65,7 @@ button {
 }
 
 
-/* .wrapper {
+.wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -85,12 +85,17 @@ button {
 
 .center {
     height: 400px;
-    width: 500px;
+    width: 300px;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1d242a;
+    background-color: #FDD5B1;
+    border-radius: 7%;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 560px;
+}
+
+.holder {
+    padding: 30px;
 }
 
 .logo {
