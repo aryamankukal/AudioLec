@@ -8,9 +8,12 @@ button {
     border-width: 1px;
     vertical-align: center;
     position: absolute;
+<<<<<<< HEAD
     left: 41%;
+=======
     left: 40%;
     top: 35%;
+>>>>>>> acb65754f4b877041879b68ff2ddbdc23f55bef0
 }
 
 
@@ -63,6 +66,7 @@ button {
 }
 
 
+<<<<<<< HEAD
 .wrapper {
     width: 100%;
     height: 100%;
@@ -81,17 +85,17 @@ button {
     100% {background-position: 100%}
 } 
 
-
+=======
+>>>>>>> acb65754f4b877041879b68ff2ddbdc23f55bef0
 .center {
     height: 400px;
     width: 300px;
     margin: auto;
-    background-color: #ffffff;
+    background-color: #FDD5B1;
     border-radius: 7%;
     position: absolute;
     margin-top: 150px;
     margin-left: 560px;
-    border: 10px solid #000000;
 }
 
 .holder {
