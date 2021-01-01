@@ -422,7 +422,7 @@
 				<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
 				<form action="/contactform" style="margin: auto;" method="POST">
 					{% if session['email_sent'] == True %}
-					<h1>Success, email sent</h1>
+					<h1>Success, email sent!</h1>
 					{% elif session['valid'] == False %}
 					<h1>Please fill out the whole form</h1>
 					{% endif %}
