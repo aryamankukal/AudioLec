@@ -66,11 +66,12 @@ button {
     height: 400px;
     width: 300px;
     margin: auto;
-    background-color: #FDD5B1;
+    background-color: #ffffff;
     border-radius: 7%;
     position: absolute;
     margin-top: 150px;
     margin-left: 560px;
+    border: 10px solid #000000;
 }
 
 .holder {
