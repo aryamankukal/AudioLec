@@ -181,27 +181,20 @@
 			width: 83px;
 		}
 
-		.textarea {
-			display: block;
-			width: 100%;
-			overflow: hidden;
-			resize: both;
-			min-height: 40px;
-			line-height: 20px;
-			text-align: left;
-			padding: 10px;
-			background-color: rgba(144, 144, 144, 0.25);
-		}
-
-		.textarea[contenteditable]:empty::before {
-			content: "";
-			color: gray;
-
-		}
-
-		.contactme:focus {
+		input[type=text],
+		input[type=password] {
+			width: 600px;
+			margin: auto;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
 			outline: none;
 		}
+
+		/* When the input field gets focus, change its width to 100% */
+		/* input[type=text]:focus,
+		input[type=password]:focus {
+			width: 70%;
+		} */
 	</style>
 </head>
 
@@ -225,6 +218,7 @@
 								<li><a href="/record">Record</a></li>
 								<li><a href="/convertwav">Upload Recording</a></li>
 								<li><a href="#three">The Team</a></li>
+								<li><a href="#footer">Contact Us</a></li>
 							</ul>
 						</div>
 					</li>
@@ -424,16 +418,29 @@
 				<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
 				<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
 				<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
-				<form action="/contactform" style="width: 700px; margin: auto;" method="POST">
-					<p style="display: block;">Email<span class="textarea" role="textbox" id="email"
-							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
-							contenteditable></span></p>
-					<p style="display: block;">Subject<span class="textarea" role="textbox"
-							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
-							contenteditable></span></p>
-					<p style="display: block;">How can we help you?<span class="textarea" role="textbox"
-							style="margin-top: 15px; outline: none; border-radius: 4px; height: auto;"
-							contenteditable></span></p>
+				<form action="/contactform" style="margin: auto;" method="POST">
+					{% if session['email_sent'] == True %}
+					<h1>Success, email sent</h1>
+					{% endif %}
+					<div style="display: flex;">
+						<div style="margin-right: 20px; margin-left: 53px;">
+							<label for="">Email</label>
+							<input type="text" class="contactme" name="email">
+							<br>
+							<label for="">Please type your email password</label>
+							<input type="password" class="contactme" name="password">
+							<br>
+							<label for="">Subject</label>
+							<input type="text" class="contactme" name="subject">
+							<br>
+						</div>
+						<div style="margin-right: 40px; margin-left: 20px;">
+							<label for="">How Can We Help You?</label>
+							<input type="text" class="contactme" name="message"
+								style="height: 300px; padding-bottom: 250px;">
+							<br>
+						</div>
+					</div>
 					<input type="submit">
 				</form>
 			</ul>

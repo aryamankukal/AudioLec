@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
 import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
+import emailer as email
 
 # import summarizer as summ
 
@@ -9,9 +10,18 @@ app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
 
 
+@app.route('/delallsessions')
+def delallsessions():
+    session.pop('transcript', None)
+    session.pop('summary', None)
+    session.pop('keywords', None)
+    session.pop('email_sent', None)
+    return redirect('/')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', session=session)
 
 
 @app.route('/record')
@@ -63,8 +73,14 @@ def convertwav():
 @app.route('/contactform', methods=['GET', 'POST'])
 def contactform():
     contactform = request.form
-    email = contactform.get(id)
-    return f"{email}"
+    SENDER_ADDRESS = contactform['email']
+    subject = contactform['subject']
+    msg = contactform['message']
+    PASSWORD = contactform['password']
+    email.send_email(subject, msg, 'audiolec4@gmail.com',
+                     PASSWORD, SENDER_ADDRESS)
+    session['email_sent'] = True
+    return redirect('/#footer')
 
 
 if __name__ == '__main__':
