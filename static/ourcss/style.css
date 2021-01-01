@@ -83,19 +83,14 @@ button {
     100% {background-position: 100%}
 } */
 
-.holder {
-<<<<<<< HEAD
-    height: 100px;
-    width: 100px;
+.center {
+    height: 400px;
+    width: 500px;
     margin: auto;
-=======
-    height: 500px;
-    width: 400px;
-    padding: 10px;
->>>>>>> ba91c1b1e0746ebaffac530ae99d385f1d20897b
-    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #1d242a;
-    position: absolute;
 }
 
 .logo {
