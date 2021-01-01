@@ -21,6 +21,9 @@ def delallsessions():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    session.pop('transcript', None)
+    session.pop('summary', None)
+    session.pop('keywords', None)
     return render_template('index.html', session=session)
 
 
@@ -40,7 +43,21 @@ def delscript():
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
     keywords = api.sample_analyze_entities(session['transcript'])
+    session['keywords'] = keywords
     return render_template('textanalysis.html', session=session, keywords=keywords)
+
+
+@app.route('/youtubevids')
+def youtubevids():
+    videos = []
+    if 'keywords' in session:
+        for keyword in session['keywords']:
+            videolist = getYT.searchVideoForKeyword(keyword)
+            for indivvideo in videolist:
+                videos.append(f'{indivvideo}: {keyword}')
+        return render_template('videos.html', videos=videos)
+    else:
+        return f'go to /convertwav'
 
 
 @app.route('/convertwav', methods=['GET', 'POST'])
