@@ -50,11 +50,11 @@ button {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0px 0px 5px 0px rgba(173, 0, 0, .3);
+        box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.53);
     }
 
     65% {
-        box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, .3);
+        box-shadow: 0px 0px 5px 13px rgba(255, 0, 0, 0.53);
     }
 
     90% {
@@ -89,9 +89,9 @@ button {
     width: 100%;
     height: 110%;
     position: absolute;
-    background: linear-gradient(45deg, #8ffff0, #ff8f8f, #ffc58f, #fff08f, #c1ff8f, #8fc9ff, #d68fff, #ff8ff9);
+    background: linear-gradient(45deg, #fff4e0, #fffee0, #e9ffe0, #e0fffa, #e0f7ff, #e0e5ff, #f1e0ff, #ffe0fc);
     background-size: 600% 100%;
-    animation: gradient 6s linear infinite;
+    animation: gradient 3s linear infinite;
     animation-direction: alternate;
     outline: none;
     margin-top: -25px;
