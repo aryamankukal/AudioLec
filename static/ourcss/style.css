@@ -84,11 +84,18 @@ button {
 } */
 
 .holder {
+<<<<<<< HEAD
     height: 100px;
     width: 100px;
     margin: auto;
+=======
+    height: 500px;
+    width: 400px;
+    padding: 10px;
+>>>>>>> ba91c1b1e0746ebaffac530ae99d385f1d20897b
     vertical-align: center;
     background-color: #1d242a;
+    position: absolute;
 }
 
 .logo {
