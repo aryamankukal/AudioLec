@@ -84,12 +84,12 @@ button {
 } */
 
 .holder {
-    height: 100px;
-    width: 100px;
+    height: 500px;
+    width: 400px;
     padding: 10px;
-    margin: auto;
     vertical-align: center;
     background-color: #1d242a;
+    position: absolute;
 }
 
 .logo {
