@@ -94,7 +94,6 @@ button {
     animation: gradient 3s linear infinite;
     animation-direction: alternate;
     outline: none;
-    margin-top: -25px;
     z-index: -2;
 }
 
