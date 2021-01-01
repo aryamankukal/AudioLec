@@ -45,14 +45,14 @@ jQuery(document).ready(function () {
                             .attr('src', url);
 
                         // Prepare the download link
-                        var downloadObject = $('<a>&#9660;</a>')
+                        var downloadObject = $('')
                             .attr('href', url)
                             .attr('download', new Date().toUTCString() + '.wav');
 
                         // Wrap everything in a row
                         var holderObject = $('<div class="row" style="margin: 0px;"></div>')
-                            .append(audioObject)
-                            .append(downloadObject);
+                            .append(audioObject);
+                            // .append(downloadObject);
 
                         // Append to the list
                         listObject.append(holderObject);
