@@ -9,9 +9,9 @@ button {
     vertical-align: center;
     position: absolute;
     outline: none;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 75%;
+    -ms-transform: translateY(-150%);
+    transform: translateY(-150%);
 }
 
 .notRec {
