@@ -11,9 +11,8 @@ button {
     outline: none;
     left: 40%;
     top: 35%;
+    cursor: pointer; 
 }
-
-
 
 .notRec {
     background-color: red;
