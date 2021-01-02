@@ -2,16 +2,13 @@ button {
     width: 90px;
     height: 90px;
     font-size: 0;
-    
     background-color: red;
     border-radius: 50px;
     border-width: 1px;
-    vertical-align: center;
     position: absolute;
     outline: none;
-    top: 75%;
-    -ms-transform: translateY(-150%);
-    transform: translateY(-150%);
+    top: 45%;
+    left: 47%;
 }
 
 .notRec {
@@ -61,20 +58,12 @@ button {
     }
 }
 
-.center {
-    height: 400px;
-    width: 300px;
-    margin: auto;
+.holder {
+    height: 100%;
+    width: 100%;
     background-color: transparent;
     border-radius: 7%;
     position: absolute;
-    margin-top: 150px;
-    margin-left: 560px;
-}
-
-
-.holder {
-    padding: 30px;
 }
 
 .logo {
