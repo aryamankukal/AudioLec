@@ -5,6 +5,7 @@ import ssl
 
 def searchVideoForKeyword(searchKeyword):
     allvideos = []
+    allEmbedLinks = []
     if len(searchKeyword.split(" ")) > 1:
         searchKeyword = searchKeyword.replace(" ", "+")
 
@@ -14,6 +15,6 @@ def searchVideoForKeyword(searchKeyword):
     html = urllib.request.urlopen(url, context=gcontext)
     video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
     allvideos.append("https://www.youtube.com/watch?v=" + video_ids[0])
-    allvideos.append("https://www.youtube.com/watch?v=" + video_ids[1])
-    allvideos.append("https://www.youtube.com/watch?v=" + video_ids[2])
+
+
     return allvideos
