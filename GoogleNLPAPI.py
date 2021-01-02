@@ -15,5 +15,6 @@ def sample_analyze_entities(text_content):
     entities = []
     for entity in response.entities:
         entities.append(entity.name)
-    return entities
+    entitiesUnique = list(set(entities))
+    return entitiesUnique
 
