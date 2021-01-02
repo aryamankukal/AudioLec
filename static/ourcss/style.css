@@ -14,7 +14,6 @@ button {
 .notRec {
     background-color: red;
     border: 3px solid #000000;
-
 }
 
 .Rec:focus{
