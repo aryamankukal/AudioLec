@@ -9,16 +9,16 @@
     <title>Audio Recorder</title>
     <link rel="stylesheet" href="{{url_for('static', filename='ourcss/style.css')}}">
 
-    <scrip4t type="text/javascript" src="https://code.jquery.com/jquery.min.js">
-        </script>
-        <script src="https://stephino.github.io/dist/recorder.js"></script>
-        <script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js">
+    </script>
+    <script src="https://stephino.github.io/dist/recorder.js"></script>
+    <script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
 
-        <style>
-            .div {
-                border: 3px solid #000000;
-            }
-        </style>
+    <style>
+        .div {
+            border: 3px solid #000000;
+        }
+    </style>
 </head>
 
 <body style="margin: 0px;">
@@ -29,17 +29,21 @@
     <div class="wrapper"></div>
 
     <!--recording button -->
-
-    <div class="holder" id="holder">
-        <div data-role="controls" class="controls">
-            <button class="notRec" id="recordingButton" onclick="startRecording()"></button>
+    <div class="center">
+        <div class="holder" id="holder">
+            <div data-role="controls" class="controls">
+                <button class="notRec" id="recordingButton" onclick="startRecording()"></button>
+                <div data-role="recordings" style="position: absolute; left: 39%;"></div>
+            </div>
         </div>
     </div>
-    <div data-role="recordings"></div>
+
+
 
 
     <!--js link continued-->
-    <script src="{{url_for('static', filename='ourscripts/index.js')}}"></script>
+    <script src=" {{url_for('static', filename='ourscripts/index.js' )}}">
+    </script>
 </body>
 
 </html>
