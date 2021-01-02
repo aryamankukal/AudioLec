@@ -16,28 +16,37 @@
             border-radius: 7px;
             position: absolute;
             padding: 20px;
-            top: 40%;
+            top: 35%;
             left: 37%;
         }
 
         input[type=file] {
             height: 30px;
             background-color: blue;
+            display: none;
         }
 
         h1 {
             color: white;
+            text-align: center;
+
         }
     </style>
 </head>
 
 <body style="background-color: #db4f4f;">
     <div id="speechContainer">
-        <h1>Upload new File</h1>
+        <h1>Upload New File</h1>
         <form method="post" enctype="multipart/form-data">
-            <input type="file" name="file" />
+            <label class="custom-file-upload" for='file'
+                style="margin-top: 5px; height: 25px; background-color: blue; text-align: center; color: black; width: 100%;">
+                <input type="file" name="file" id='file' class="upload-btn" />
+                <b>Custom Upload</b>
+            </label>
             <br>
-            <input type="submit" id="submitButton" value="Transcribe" class="btn btn-primary" />
+            <br>
+            <button id="submitButton"
+                style="height: 25px; background-color: blue; outline: none; border: none; width: 100%;"><b>Transcribe</b></button>
         </form>
     </div>
 

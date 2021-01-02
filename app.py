@@ -91,15 +91,14 @@ def convertwav():
 def contactform():
     session['valid'] = True
     contactform = request.form
-    SENDER_ADDRESS = contactform['email']
-    subject = contactform['subject']
+    sender_email = contactform['email']
+    subject = contactform['subject'] + f" by: {sender_email}"
     msg = contactform['message']
-    PASSWORD = contactform['password']
-    if SENDER_ADDRESS == "" or subject == "" or msg == "" or PASSWORD == "":
+    if email == "" or subject == "" or msg == "":
         session['valid'] = False
     else:
         email.send_email(subject, msg, 'audiolec4@gmail.com',
-                         PASSWORD, SENDER_ADDRESS)
+                         'hackathon2020', 'audiolec4@gmail.com')
         session['email_sent'] = True
         return redirect('/#footer')
     return redirect('/#footer')
