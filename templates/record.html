@@ -12,7 +12,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://stephino.github.io/dist/recorder.js"></script>
     <script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
-    <script src="{{url_for('static', filename='ourscripts/index.js')}}"></script>
 
     <style>
         .div {
@@ -31,7 +30,7 @@
     <!--recording button -->
 
     <div class="center">
-        <div class="holder">
+        <div class="holder" id="holder">
             <div data-role="controls" class="controls">
                 <button class="notRec" id="recordingButton" onclick="startRecording()"></button>
             </div>
@@ -41,7 +40,7 @@
 
 
     <!--js link continued-->
-
+    <script src="{{url_for('static', filename='ourscripts/index.js')}}"></script>
 </body>
 
 </html>
