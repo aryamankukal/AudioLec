@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import speech_recognition as sr
+import os
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
 import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
 import emailer as email
 
 # import summarizer as summ
+
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
@@ -81,9 +85,11 @@ def convertwav():
             recognizer = sr.Recognizer()
             audioFile = sr.AudioFile(file)
             with audioFile as source:
+                recognizer.adjust_for_ambient_noise(source)
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
+            print(transcript)
             return redirect('/textanalysis')
 
     return render_template('convertwav.html')
