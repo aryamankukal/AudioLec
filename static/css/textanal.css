@@ -20,37 +20,18 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-body {
+/* body {
 	line-height: 1;
-}
+} */
 
 ol, ul {
 	list-style: none;
 }
 
-blockquote, q {
-	quotes: none;
-}
-
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-body {
+/* body {
 	-webkit-text-size-adjust: none;
-}
-
-mark {
-	background-color: transparent;
-	color: inherit;
-}
-
+} */
+/* 
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
@@ -61,7 +42,7 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-}
+} */
 #header {
     -moz-transition: background-color 0.2s ease;
     -webkit-transition: background-color 0.2s ease;
@@ -318,7 +299,7 @@ input, select, textarea {
             background: #2e3842;
         }
     
-            body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+            /* body.is-preload *, body.is-preload *:before, body.is-preload *:after {
                 -moz-animation: none !important;
                 -webkit-animation: none !important;
                 -ms-animation: none !important;
@@ -328,7 +309,7 @@ input, select, textarea {
                 -ms-transition: none !important;
                 transition: none !important;
             }
-    
+     */
         body, input, select, textarea {
             color: #fff;
             font-family: "Open Sans", Helvetica, sans-serif;
@@ -377,9 +358,9 @@ input, select, textarea {
                 border-bottom-color: transparent;
             }
     
-        p {
+        /* p {
             margin: 0 0 2em 0;
-        }
+        } */
     
         h1, h2, h3, h4, h5, h6 {
             color: #fff;
@@ -389,7 +370,7 @@ input, select, textarea {
             margin: 0 0 1em 0;
         }
     
-            h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            /* h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
                 color: inherit;
                 text-decoration: none;
             }
@@ -435,7 +416,7 @@ input, select, textarea {
         h6 {
             font-size: 0.7em;
             line-height: 1.5em;
-        }
+        } */
     
         .align-left {
             text-align: left;
