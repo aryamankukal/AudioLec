@@ -110,6 +110,5 @@ def contactform():
 def generic():
     return render_template('generic.html')
 
-
 if __name__ == '__main__':
     app.run(debug=True)
