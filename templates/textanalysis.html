@@ -55,8 +55,8 @@
         /* Float cancel and delete buttons and add an equal width */
         .cancelbtn,
         .deletebtn {
-            float: left;
-            width: 50%;
+            /* float: left; */
+            width: 100%;
         }
 
         /* Add a color to the cancel button */
@@ -65,9 +65,31 @@
             color: black;
         }
 
+        .emailinput {
+            width: 300px;
+        }
+
         /* Add a color to the delete button */
         .deletebtn {
             background-color: #f44336;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            width: 300px;
+            height: 30px;
+            padding: 3px;
+        }
+
+        .deletebtn:focus {
+            outline: none;
+            border: none;
+        }
+
+        .deletebtn:hover {
+            outline: none;
+            border: none;
+            background-color: #d43f34;
         }
 
         /* Add padding and center-align text to the container */
@@ -99,10 +121,12 @@
         /* Modal Content/Box */
         .modal-content {
             background-color: #fefefe;
+            padding: 20px;
             margin: 5% auto 15% auto;
             /* 5% from the top, 15% from the bottom and centered */
             border: 1px solid #888;
             width: 80%;
+            height: 30%;
             /* Could be more or less, depending on screen size */
         }
 
@@ -135,13 +159,16 @@
             display: table;
         }
 
-        /* Change styles for cancel button and delete button on extra small screens */
+        /* Change styles for cancel button and delete button on extra small screens
         @media screen and (max-width: 300px) {
 
             .cancelbtn,
             .deletebtn {
                 width: 100%;
             }
+        } */
+        #transcript:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -181,19 +208,18 @@
                 Text</button>
             <button class="buttons" style="font: inherit; color: #242424; margin-top: 10px;"
                 onclick="document.getElementById('id01').style.display='block'">Email Analysis</button>
+
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">×</span>
-                <form class="modal-content" action="/action_page.php">
+                <form class="modal-content" action="/emailanalysis" method="POST" style="top: 50%;">
                     <div class="container">
-                        <h1>Delete Account</h1>
-                        <p>Are you sure you want to delete your account?</p>
-
+                        <h1 style="color: black;">Please enter your email</h1>
                         <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                class="cancelbtn">Cancel</button>
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                class="deletebtn">Delete</button>
+                            <input type="text" class="emailinput" name='email' style="color: black;" />
+                            <br>
+                            <input type="submit" onclick="document.getElementById('id01').style.display='none'"
+                                class="deletebtn" style="background-color: #db4f4f; padding-top: 5px;" value="Send!" />
                         </div>
                     </div>
                 </form>

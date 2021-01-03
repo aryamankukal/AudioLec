@@ -107,10 +107,13 @@ def contactform():
     return redirect('/#footer')
 
 
-@app.route('/emailanalysis')
+@app.route('/emailanalysis', methods=['GET', 'POST'])
 def emailanalysis():
+    emailform = request.form
+    reciever = emailform['email']
     email.send_email('Your transcript from AudioLec',
-                     'transcript goes here', 'hackathon2020', 'audiolec4@gmail.com')
+                     'transcript goes here', reciever, 'hackathon2020', 'audiolec4@gmail.com')
+    return redirect('/textanalysis')
 
 
 @app.route('/generic')
