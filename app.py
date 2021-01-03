@@ -42,22 +42,26 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
-    keywords = api.sample_analyze_entities(session['transcript'])
-    session['keywords'] = keywords
-    return render_template('textanalysis.html', session=session, keywords=keywords)
+    if 'transcript' in session:
+        keywords = api.sample_analyze_entities(session['transcript'])
+        session['keywords'] = keywords
+        return render_template('textanalysis.html')
+    else:
+        return redirect('/convertwav')
 
 
 @app.route('/youtubevids')
 def youtubevids():
     videos = []
     if 'keywords' in session:
-        for keyword in session['keywords']:
-            videolist = getYT.searchVideoForKeyword(keyword)
-            for indivvideo in videolist:
-                videos.append(f'{indivvideo}: {keyword}')
+        for catergory, keywords in session['keywords'].items():
+            for keyword in keywords:
+                video = getYT.searchVideoForKeyword(keyword)
+                for indivvideo in video:
+                    videos.append(f'{indivvideo}')
         return render_template('videos.html', videos=videos)
     else:
-        return f'go to /convertwav'
+        return redirect('/convertwav')
 
 
 @app.route('/convertwav', methods=['GET', 'POST'])
@@ -80,11 +84,9 @@ def convertwav():
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
-            # summary = summ.summarizer(transcript)
-            # session['summary'] = summary
             return redirect('/textanalysis')
 
-    return render_template('convertwav.html', transcript=transcript)
+    return render_template('convertwav.html')
 
 
 @app.route('/contactform', methods=['GET', 'POST'])

@@ -14,25 +14,16 @@
 
 
 <body>
-    <!--{% if 'transcript' in session %}-->
-    <!--<h1>{{session['transcript']}}</h1>-->
-    <!--<form action="/delscript" method='POST'>-->
-    <!--<button>Delete transcript</button>-->
-    <!--</form>-->
-    <!--{% else %}-->
-    <!--<a href="/convertwav">get a transcript</a>-->
-    <!--{% endif %}-->
-    <h1>
-        <p>Here is a transcript of your audio recording:</p>
-        {{session['transcript']}}
-    </h1>
-    <h1>
-        <!--{{session['summary']}}-->
-    </h1>
-    {% for keyword in keywords %}
-    <p>{{keyword}}</p>
-    {% endfor %}
-    <a href="/delsession">delete session details</a>
+    <h1>We have completed converting your audo file to text. Please choose an option below</h1>
+    <form action="">
+        <button>Copy the above text</button>
+    </form>
+    <form action="">
+        <button>Send email to yoruself</button>
+    </form>
+    <form action="/youtubevids">
+        <button>Find youtube videos based on your audio file</button>
+    </form>
 </body>
 
 </html>
