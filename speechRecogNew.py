@@ -55,7 +55,8 @@ def silence_based_conversion(path):
         # the current directory.
         # print("saving chunk{0}.wav".format(i))
         # specify the bitrate to be 192 k
-        audio_chunk.export("./chunk{0}.wav".format(i), bitrate='192k', format="wav")
+        audio_chunk.export("./chunk{0}.wav".format(i),
+                           bitrate='192k', format="wav")
 
         # the name of the newly created chunk
         filename = 'chunk' + str(i) + '.wav'
@@ -74,11 +75,11 @@ def silence_based_conversion(path):
             # remove this if it is not working
             # correctly.
             r.adjust_for_ambient_noise(source)
-            audio_listened = r.listen(source)
+            data = r.record(source)
 
         try:
             # try converting it to text
-            rec = r.recognize_google(audio_listened)
+            rec = r.recognize_google(data)
             # write the output to the file.
             fh.write(rec + ". ")
 
@@ -93,3 +94,5 @@ def silence_based_conversion(path):
 
     os.chdir('..')
 
+
+silence_based_conversion('idk.wav')

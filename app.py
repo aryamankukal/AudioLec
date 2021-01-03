@@ -43,12 +43,13 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
-    if 'transcript' in session:
-        keywords = api.sample_analyze_entities(session['transcript'])
-        session['keywords'] = keywords
-        return render_template('textanalysis.html')
-    else:
-        return redirect('/convertwav')
+    return render_template('textanalysis.html')
+    # if 'transcript' in session:
+    #     keywords = api.sample_analyze_entities(session['transcript'])
+    #     session['keywords'] = keywords
+    #     return render_template('textanalysis.html')
+    # else:
+    #     return redirect('/convertwav')
 
 
 @app.route('/youtubevids')
@@ -93,10 +94,6 @@ def convertwav():
             # print(transcript)
             return redirect('/textanalysis')
 
-
-
-
-
     return render_template('convertwav.html')
 
 
@@ -120,6 +117,7 @@ def contactform():
 @app.route('/generic')
 def generic():
     return render_template('generic.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
