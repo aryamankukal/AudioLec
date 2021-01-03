@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect, session
-import speech_recognition as sr
-import os
-from pydub import AudioSegment
-from pydub.silence import split_on_silence
 import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
 import emailer as email
+import speechRecogNew as sp
 
 # import summarizer as summ
 
@@ -72,7 +69,7 @@ def youtubevids():
 def convertwav():
     transcript = ""
     if request.method == "POST":
-        print("FORM DATA RECEIVED")
+        # print("FORM DATA RECEIVED")
 
         if "file" not in request.files:
             return redirect(request.url)
@@ -82,15 +79,23 @@ def convertwav():
             return redirect(request.url)
 
         if file:
-            recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(file)
-            with audioFile as source:
-                recognizer.adjust_for_ambient_noise(source)
-                data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data, key=None)
-            session['transcript'] = transcript
-            print(transcript)
+            sp.silence_based_conversion(file)
+            with open("speechRecognition.txt", "r") as myfile:
+                data = myfile.read().splitlines()
+            print(data)
+            # recognizer = sr.Recognizer()
+            # audioFile = sr.AudioFile(file)
+            # with audioFile as source:
+            #     recognizer.adjust_for_ambient_noise(source)
+            #     data = recognizer.record(source)
+            # transcript = recognizer.recognize_google(data, key=None)
+            # session['transcript'] = transcript
+            # print(transcript)
             return redirect('/textanalysis')
+
+
+
+
 
     return render_template('convertwav.html')
 
