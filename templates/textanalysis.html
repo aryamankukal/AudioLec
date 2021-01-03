@@ -9,6 +9,7 @@
     <title>Audio Recorder</title>
     <link rel="stylesheet" href="/static/css/textanalysis.css">
 
+
     <style>
         .wrapper {
             width: 100%;
@@ -32,10 +33,25 @@
                 background-position: 100%
             }
         }
+
+        .buttons {
+            background-color: #db4f4f;
+            /* 24a0ed  */
+            border: none;
+            outline: none;
+            height: 44px;
+            border-radius: 5px;
+        }
+
+        .buttons:hover {
+            background-color: #c44343;
+            outline: none;
+            box-shadow: 5px;
+        }
     </style>
 </head>
 
-<body>
+<body style="font-family: 'monaco', monospace;">
     <header id="header">
         <h1><a href="/">AudioLec</a></h1>
         <nav id="nav">
@@ -62,7 +78,20 @@
 
     <div class="wrapper"></div>
 
-    <h1 style="color: white;">Hello</h1>
+    <h1 style="color: white; text-align: center; margin-top: 30vh; font-size: 25px;">Analysis Completed</h1>
+    <h2 style="color: white; text-align: center;">Please select an option:</h2>
+    <div style="display: flex; text-align: center; justify-content: center;">
+        <form action="/" style="margin: 10px;">
+            <button class="buttons" style="font: inherit; color: #242424;">Copy Text</button>
+        </form>
+        <form action="/" style="margin: 10px;">
+            <button class="buttons" style="font: inherit; color: #242424;">Email Analysis</button>
+        </form>
+        <form action="/youtubevids" style="margin: 10px;">
+            <button class="buttons" style="font: inherit; color: #242424;">Get Youtube Videos</button>
+        </form>
+    </div>
+
 
 
 

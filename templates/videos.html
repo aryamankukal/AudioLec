@@ -7,12 +7,14 @@
     <title>Videos</title>
 </head>
 
-<body style="">
+<body>
     <div style="display: flex;"></div>
     {% for video in videos %}
-    <iframe width="441" height="300" src="{{video}}" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+    <div style="display: block; text-align: center;">
+        <iframe width="441" height="300" src="{{video}}" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
     {% endfor %}
     </div>
 </body>
