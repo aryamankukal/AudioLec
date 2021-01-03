@@ -22,9 +22,9 @@ def delallsessions():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    session.pop('transcript', None)
-    session.pop('summary', None)
-    session.pop('keywords', None)
+    # session.pop('transcript', None)
+    # session.pop('summary', None)
+    # session.pop('keywords', None)
     return render_template('index.html', session=session)
 
 
@@ -105,6 +105,12 @@ def contactform():
         session['email_sent'] = True
         return redirect('/#footer')
     return redirect('/#footer')
+
+
+@app.route('/emailanalysis')
+def emailanalysis():
+    email.send_email('Your transcript from AudioLec',
+                     'transcript goes here', 'hackathon2020', 'audiolec4@gmail.com')
 
 
 @app.route('/generic')
