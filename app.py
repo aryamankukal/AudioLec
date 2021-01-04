@@ -158,11 +158,5 @@ def contactform():
         return redirect('/#footer')
     return redirect('/#footer')
 
-
-@app.route('/generic')
-def generic():
-    return render_template('generic.html')
-
-
 if __name__ == '__main__':
     app.run(debug=True)
