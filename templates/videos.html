@@ -64,7 +64,7 @@
     </header>
     <div class="wrapper"></div>
     <div style="display: inline; margin-top: 2px;">
-
+        <h1>General Videos</h1>
         {% for video in videos %}
         <iframe src="{{video}}" frameborder="0" width="24%"
             allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -73,12 +73,16 @@
     </div>
 
     <div>
+        {% if lenpeople == 0 %}
+        <h1>People - None</h1>
+        {% else %}
         <h1>People</h1>
         {% for person in people %}
         <iframe src="{{person}}" frameborder="0" width="24%"
             allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         {% endfor %}
+        {% endif %}
     </div>
 
     <div>

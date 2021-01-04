@@ -75,7 +75,7 @@ def youtubevids():
                     videos.append(f'{indivvideo}')
         print(people)
         print(places)
-        return render_template('videos.html', videos=videos, places=places, people=people)
+        return render_template('videos.html', videos=videos, places=places, people=people, lenplaces=len(places), lenpeople=len(people))
     else:
         return redirect('/convertwav')
 
