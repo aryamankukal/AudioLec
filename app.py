@@ -61,21 +61,19 @@ def textanalysis():
 @app.route('/youtubevids')
 def youtubevids():
     videos = []
-    people = []
-    places = []
+    # people = []
+    # places = []
     if 'keywords' in session:
         for catergory, keywords in session['keywords'].items():
             for keyword in keywords:
                 video = getYT.searchVideoForKeyword(keyword)
                 for indivvideo in video:
-                    if catergory == "people":
-                        people.append(f'{indivvideo}')
-                    elif catergory == "placesOrOrganizations":
-                        places.append(f'{indivvideo}')
+                    #     if catergory == "people":
+                    #         people.append(f'{indivvideo}')
+                    #     elif catergory == "placesOrOrganizations":
+                    #         places.append(f'{indivvideo}')
                     videos.append(f'{indivvideo}')
-        print(people)
-        print(places)
-        return render_template('videos.html', videos=videos, places=places, people=people, lenplaces=len(places), lenpeople=len(people))
+        return render_template('videos.html', videos=videos)
     else:
         return redirect('/convertwav')
 
