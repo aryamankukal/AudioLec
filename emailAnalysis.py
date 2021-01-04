@@ -7,8 +7,7 @@ def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS):
         server.ehlo()
         server.starttls()
         server.login(SENDER_ADDRESS, PASSWORD)
-        message = 'Subject: {} \n\nDear User, \n\n\tHere is your transcript\n\n{}'.format(
-            subject, msg)
+        message = 'Dear User, \n\n\tHere is your transcript\n\n{}'.format(msg)
         server.sendmail(SENDER_ADDRESS, RECIEVER_ADDRESS, message, subject)
         return "Success: Email sent!"
     except:
