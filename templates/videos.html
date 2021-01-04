@@ -35,11 +35,6 @@
             background-position: 100%
         }
     }
-
-    @viewport {
-
-        width: 100vw;
-    }
 </style>
 
 <body>
@@ -63,8 +58,8 @@
         </nav>
     </header>
     <div class="wrapper"></div>
-    <div style="display: inline; margin-top: 2px;">
-        <h1>General Videos</h1>
+    <div style="display: inline;">
+        <h1 style="margin-top: 10px;">General Videos</h1>
         {% for video in videos %}
         <iframe src="{{video}}" frameborder="0" width="24%"
             allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -73,27 +68,28 @@
     </div>
 
     <div>
-        {% if lenpeople == 0 %}
-        <h1>People - None</h1>
-        {% else %}
-        <h1>People</h1>
-        {% for person in people %}
-        <iframe src="{{person}}" frameborder="0" width="24%"
-            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        {% endfor %}
-        {% endif %}
-    </div>
+        <div style="width: 50%; float: left; text-align: center;">
+            {% if lenpeople == 0 %}
+            <h1>People - None</h1>
+            {% else %}
+            <h1>People</h1>
+            {% for person in people %}
+            <iframe src="{{person}}" frameborder="0" width="24%"
+                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            {% endfor %}
+            {% endif %}
+        </div>
 
-    <div>
-        <h1>Places</h1>
-        {% for place in places %}
-        <iframe src="{{place}}" frameborder="0" width="24%"
-            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        {% endfor %}
+        <div style="width: 50%; float: left; text-align: center;">
+            <h1>Places</h1>
+            {% for place in places %}
+            <iframe src="{{place}}" frameborder="0" width="24%"
+                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            {% endfor %}
+        </div>
     </div>
-
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.scrollex.min.js"></script>
     <script src="static/js/jquery.scrolly.min.js"></script>
