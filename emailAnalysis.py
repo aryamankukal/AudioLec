@@ -7,7 +7,7 @@ def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS):
         server.ehlo()
         server.starttls()
         server.login(SENDER_ADDRESS, PASSWORD)
-        message = 'Subject: {}\n\nHey there! We have emailed your lecture analysis as you requested please email audiolec4@gmail.com if you have any questions or converns.\n\n{}\n\nSincerely,\nThe AudioLec Team'.format(
+        message = 'Subject: {}\n\nHey there! We have emailed your lecture analysis as you requested. Please email audiolec4@gmail.com if you have any questions or concerns.\n\n{}\n\nSincerely,\nThe AudioLec Team'.format(
             subject, msg)
 
         server.sendmail(SENDER_ADDRESS, RECIEVER_ADDRESS, message)
