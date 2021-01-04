@@ -35,10 +35,6 @@
         }
     }
 
-    @viewport {
-        height: 100vh;
-        width: 100vw;
-    }
 </style>
 
 <body>
@@ -61,40 +57,15 @@
             </ul>
         </nav>
     </header>
-    <div class="wrapper">
-        <div style="display: inline;">
-            <h1 style="margin-top: 10px;">General Videos</h1>
-            {% for video in videos %}
-            <iframe src="{{video}}" frameborder="0" width="24%"
-                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            {% endfor %}
-        </div>
+    <div class="wrapper"></div>
 
-        <div style="">
-            <div style="width: 50%; height: auto; float: left; text-align: center;">
-                {% if lenpeople == 0 %}
-                <h1>People - None</h1>
-                {% else %}
-                <h1>People</h1>
-                {% for person in people %}
-                <center><iframe src="{{person}}" frameborder="0"
-                        allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe></center>
-                {% endfor %}
-                {% endif %}
-            </div>
-
-            <div style="width: 50%; height: auto; float: left; text-align: center;">
-                <h1>Places</h1>
-                {% for place in places %}
-                <center><iframe src="{{place}}" frameborder="0"
-                        allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe></center>
-                {% endfor %}
-            </div>
-        </div>
+    <div style="margin: auto;">
+        {% for video in videos %}
+            <iframe src="{{video}}" frameborder="0" width="24.6%"  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {% endfor %}
     </div>
+
+
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.scrollex.min.js"></script>
     <script src="static/js/jquery.scrolly.min.js"></script>
