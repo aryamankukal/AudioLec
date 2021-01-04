@@ -1,12 +1,14 @@
 import smtplib
 
-def g(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS):
+def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS, keywordsDict):
     try:
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.ehlo()
         server.starttls()
         server.login(SENDER_ADDRESS, PASSWORD)
-        message = 'Subject: {}\n\n{}'.format(subject, msg)
+
+        message = 'Subject: {} \n\n {} \n\n Hey there! \n\n We '.format(subject, msg)
+
         server.sendmail(SENDER_ADDRESS, RECIEVER_ADDRESS, message)
         return "Success: Email sent!"
     except:
