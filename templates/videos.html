@@ -15,8 +15,7 @@
 
     .wrapper {
         width: 100%;
-        /* height: 100%; */
-        height: 92%;
+        height: 100%;
         position: absolute;
         background: linear-gradient(45deg, #222830, #1d1f21, #000000);
         background-size: 600% 100%;
@@ -34,6 +33,11 @@
         100% {
             background-position: 100%
         }
+    }
+
+    @viewport {
+        height: 100vh;
+        width: 100vw;
     }
 </style>
 
@@ -57,37 +61,38 @@
             </ul>
         </nav>
     </header>
-    <div class="wrapper"></div>
-    <div style="display: inline;">
-        <h1 style="margin-top: 10px;">General Videos</h1>
-        {% for video in videos %}
-        <iframe src="{{video}}" frameborder="0" width="24%"
-            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        {% endfor %}
-    </div>
-
-    <div>
-        <div style="width: 50%; float: left; text-align: center;">
-            {% if lenpeople == 0 %}
-            <h1>People - None</h1>
-            {% else %}
-            <h1>People</h1>
-            {% for person in people %}
-            <iframe src="{{person}}" frameborder="0" width="24%"
+    <div class="wrapper">
+        <div style="display: inline;">
+            <h1 style="margin-top: 10px;">General Videos</h1>
+            {% for video in videos %}
+            <iframe src="{{video}}" frameborder="0" width="24%"
                 allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             {% endfor %}
-            {% endif %}
         </div>
 
-        <div style="width: 50%; float: left; text-align: center;">
-            <h1>Places</h1>
-            {% for place in places %}
-            <iframe src="{{place}}" frameborder="0" width="24%"
-                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            {% endfor %}
+        <div style="">
+            <div style="width: 50%; height: auto; float: left; text-align: center;">
+                {% if lenpeople == 0 %}
+                <h1>People - None</h1>
+                {% else %}
+                <h1>People</h1>
+                {% for person in people %}
+                <center><iframe src="{{person}}" frameborder="0"
+                        allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe></center>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div style="width: 50%; height: auto; float: left; text-align: center;">
+                <h1>Places</h1>
+                {% for place in places %}
+                <center><iframe src="{{place}}" frameborder="0"
+                        allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe></center>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <script src="static/js/jquery.min.js"></script>
