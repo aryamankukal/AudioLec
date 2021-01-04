@@ -35,10 +35,6 @@
         }
     }
 
-    @viewport {
-        height: 100vh;
-        width: 100vw;
-    }
 </style>
 
 <body>
@@ -61,14 +57,12 @@
             </ul>
         </nav>
     </header>
-    <div class="wrapper">
-        <div style="display: inline; ">
-            {% for video in videos %}
-            <iframe src="{{video}}" frameborder="0" width="24%"
-                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            {% endfor %}
-        </div>
+    <div class="wrapper"></div>
+
+    <div style="margin: auto;">
+        {% for video in videos %}
+            <iframe src="{{video}}" frameborder="0" width="24.6%"  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {% endfor %}
     </div>
 
 
