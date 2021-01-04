@@ -58,6 +58,42 @@ def textanalysis():
         return redirect('/convertwav')
 
 
+@app.route('/testintelligence', methods=['GET', 'POST'])
+def testintelligence():
+    if 'transcript' in session:
+        if request.method == 'POST':
+            emailform = request.form
+            reciever = emailform['email']
+            subject = emailform['subject']
+            send_email(f"{subject} - Your AudioLec Lecture", session['transcript'], reciever,
+                       'hackathon2020', 'audiolec4@gmail.com')
+        keywords = api.sample_analyze_entities(session['transcript'])
+        session['keywords'] = keywords
+
+        videos = []
+        people = []
+        places = []
+        if 'keywords' in session:
+            for catergory, keywords in session['keywords'].items():
+                for keyword in keywords:
+                    video = getYT.searchVideoForKeyword(keyword)
+                    for indivvideo in video:
+                        if catergory == "people":
+                            people.append(f'{indivvideo}')
+                        elif catergory == "placesOrOrganizations":
+                            places.append(f'{indivvideo}')
+                        videos.append(f'{indivvideo}')
+            print(people)
+            print(places)
+
+
+        return render_template('testintelligence.html', session=session,videos=videos, places=places, people=people, lenplaces=len(places),
+                           lenpeople=len(people))
+
+    else:
+        return redirect('/convertwav')
+
+
 @app.route('/youtubevids')
 def youtubevids():
     videos = []
@@ -100,7 +136,8 @@ def convertwav():
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
             print("transcript: " + transcript)
-            return redirect('/textanalysis')
+            return redirect('/textanalysis')  # change in later/test
+
 
     return render_template('convertwav.html')
 
