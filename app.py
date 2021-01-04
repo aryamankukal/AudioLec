@@ -44,9 +44,14 @@ def delscript():
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
     if 'transcript' in session:
+        if request.method == 'POST':
+            emailform = request.form
+            reciever = emailform['email']
+            email.send_email('Your transcript from AudioLec',
+                             session['transcript'], reciever, 'hackathon2020', 'audiolec4@gmail.com')
         keywords = api.sample_analyze_entities(session['transcript'])
         session['keywords'] = keywords
-        return render_template('textanalysis.html')
+        return render_template('textanalysis.html', session=session)
     else:
         return redirect('/convertwav')
 
@@ -105,15 +110,6 @@ def contactform():
         session['email_sent'] = True
         return redirect('/#footer')
     return redirect('/#footer')
-
-
-@app.route('/emailanalysis', methods=['GET', 'POST'])
-def emailanalysis():
-    emailform = request.form
-    reciever = emailform['email']
-    email.send_email('Your transcript from AudioLec',
-                     'transcript goes here', reciever, 'hackathon2020', 'audiolec4@gmail.com')
-    return redirect('/textanalysis')
 
 
 @app.route('/generic')

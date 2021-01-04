@@ -21,14 +21,11 @@
 </style>
 
 <body>
-    <div style="display: flex;"></div>
+    <div style="display: flex; margin:auto;"></div>
     {% for video in videos %}
-    <div
-        style="display: block; white-space:nowrap; position:absolute; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%); ">
-        <iframe width="300" height="300" src="{{video}}" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div>
+    <iframe width="300" height="300" src="{{video}}" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     {% endfor %}
     </div>
 </body>
