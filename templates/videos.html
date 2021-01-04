@@ -13,13 +13,6 @@
         background-color: #2e3842;
     }
 
-    .box {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-
     .wrapper {
         width: 100%;
         /* height: 100%; */
@@ -41,6 +34,11 @@
         100% {
             background-position: 100%
         }
+    }
+
+    @viewport {
+
+        width: 100vw;
     }
 </style>
 
@@ -65,12 +63,15 @@
         </nav>
     </header>
     <div class="wrapper"></div>
-    <div style="display: block; margin-left:3px; margin-right:auto;padding:70px 0;"></div>
-    {% for video in videos %}
-    <iframe width="23%" height="23%" src="{{video}}" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    {% endfor %}
+    <div style="display: inline; margin-top: 2px;">
+
+        {% for video in videos %}
+        <iframe src="{{video}}" frameborder="0" width="24%"
+            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        {% endfor %}
+    </div>
+
     </div>
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.scrollex.min.js"></script>

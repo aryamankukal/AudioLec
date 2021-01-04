@@ -1,17 +1,13 @@
 import smtplib
 
 
-def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS, keywordsDict):
+def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS):
     try:
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.ehlo()
         server.starttls()
         server.login(SENDER_ADDRESS, PASSWORD)
-        message = 'Subject: {}\n\nDear User, \n\nHere is your transcript\n\n{}'.format(
-            subject, msg)
-        server.sendmail(SENDER_ADDRESS, RECIEVER_ADDRESS, message)
-
-        message = 'Subject: {} \n\n {} \n\n Hey there! \n\n We '.format(
+        message = 'Subject: {}\n\nHey there! We have emailed your lecture analysis as you requested please email audiolec4@gmail.com if you have any questions or converns.\n\n{}\n\nSincerely,\nThe AudioLec Team'.format(
             subject, msg)
 
         server.sendmail(SENDER_ADDRESS, RECIEVER_ADDRESS, message)

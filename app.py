@@ -67,7 +67,7 @@ def youtubevids():
                 video = getYT.searchVideoForKeyword(keyword)
                 for indivvideo in video:
                     videos.append(f'{indivvideo}')
-        return render_template('videos.html', videos=videos)
+        return render_template('videos.html', videos=videos, session=session)
     else:
         return redirect('/convertwav')
 
