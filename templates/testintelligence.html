@@ -11,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
-
         @import url(fontawesome-all.min.css);
         @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
@@ -174,21 +173,26 @@
             outline: none;
         }
 
-        //css
+        /*css*/
 
         .Row {
             display: table;
-            width: 100%; /*Optional*/
-            table-layout: fixed; /*Optional*/
-            border-spacing: 10px; /*Optional*/
+            width: 100%;
+            /*Optional*/
+            table-layout: fixed;
+            /*Optional*/
+            border-spacing: 10px;
+            /*Optional*/
             border: 1px solid red;
         }
+
         .Column {
             display: table-cell;
             width: 33.33%;
 
 
         }
+
         .break-word {
             word-wrap: break-word;
         }
@@ -223,7 +227,7 @@
     <div class="wrapper"></div>
 
     <div>
-        <h1 style="color: white; text-align: center; margin-top: 15vh; font-size: 25px;">Analysis Completed  TEST</h1>
+        <h1 style="color: white; text-align: center; margin-top: 15vh; font-size: 25px;">Analysis Completed TEST</h1>
         <h2 style="color: white; text-align: center;">Please select an option:</h2>
         <div style="display: flex; text-align: center; justify-content: center;">
             <button class="buttons" onclick="copy()" style="font: inherit; color: #242424; margin: 10px;">Copy
@@ -263,90 +267,90 @@
     </div>
 
     <div class="Row">
-    <div class="Column">C6</div>
-    <div class="Column">C7</div>
-    <div class="Column">C8</div>
+        <div class="Column">C6</div>
+        <div class="Column">C7</div>
+        <div class="Column">C8</div>
     </div>
 
 
     <div class="Row">
         <div class="Column">
             <h1>Here is your transcript. <br>You can edit it <br>before copying or emailing.</h1>
-                <textarea rows="8" cols="30%" id="transcript"
-            style="color: black; align-self: center; border-radius: 7px;">{{session['transcript']}}</textarea>
+            <textarea rows="8" cols="30%" id="transcript"
+                style="color: black; align-self: center; border-radius: 7px;">{{session['transcript']}}</textarea>
         </div>
         <div class="Column">C2
             <h1>coming soon .. Entities found </h1>
         </div>
         <div class="Column">
-    <div class="wrapper">
-        <h1 style="margin-top: 10px;">General Videos</h1>
+            <div class="wrapper">
+                <h1 style="margin-top: 10px;">General Videos</h1>
 
 
-            {% for video in videos %}
-            <div style="display: inline;">
-                <iframe src="{{video}}" frameborder="0" width="24%"
-                    allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-                 </div>
-            {% endfor %}
-
-
-        <div style="">
-            <div style="width: 50%; height: auto; float: left; text-align: center;">
-                {% if lenpeople == 0 %}
-                <h1>People - None</h1>
-                {% else %}
-                <h1>People</h1>
-                {% for person in people %}
-                <center><iframe src="{{person}}" frameborder="0"
+                {% for video in videos %}
+                <div style="display: inline;">
+                    <iframe src="{{video}}" frameborder="0" width="24%"
                         allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe></center>
+                        allowfullscreen></iframe>
+                </div>
                 {% endfor %}
-                {% endif %}
+
+
+                <div style="">
+                    <div style="width: 50%; height: auto; float: left; text-align: center;">
+                        {% if lenpeople == 0 %}
+                        <h1>People - None</h1>
+                        {% else %}
+                        <h1>People</h1>
+                        {% for person in people %}
+                        <center><iframe src="{{person}}" frameborder="0"
+                                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></center>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div style="width: 50%; height: auto; float: left; text-align: center;">
+                        <h1>Places</h1>
+                        {% for place in places %}
+                        <center><iframe src="{{place}}" frameborder="0"
+                                allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></center>
+                        {% endfor %}
+                    </div>
+
+                </div>
             </div>
 
-            <div style="width: 50%; height: auto; float: left; text-align: center;">
-                <h1>Places</h1>
-                {% for place in places %}
-                <center><iframe src="{{place}}" frameborder="0"
-                        allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe></center>
-                {% endfor %}
-            </div>
-
-        </div>
-    </div>
 
 
 
 
+            <script>
+                function copy() {
+                    var copyTranscript = document.getElementById('transcript')
+                    copyTranscript.classList.toggle("show");
+                    copyTranscript.select();
+                    document.execCommand('copy')
+                }
+                var modal = document.getElementById('id01');
 
-    <script>
-        function copy() {
-            var copyTranscript = document.getElementById('transcript')
-            copyTranscript.classList.toggle("show");
-            copyTranscript.select();
-            document.execCommand('copy')
-        }
-        var modal = document.getElementById('id01');
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-    <!--js link continued-->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.scrollex.min.js"></script>
-    <script src="static/js/jquery.scrolly.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
+            <!--js link continued-->
+            <script src="static/js/jquery.min.js"></script>
+            <script src="static/js/jquery.scrollex.min.js"></script>
+            <script src="static/js/jquery.scrolly.min.js"></script>
+            <script src="static/js/browser.min.js"></script>
+            <script src="static/js/breakpoints.min.js"></script>
+            <script src="static/js/util.js"></script>
+            <script src="static/js/main.js"></script>
 </body>
 
 </html>

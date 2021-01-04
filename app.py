@@ -83,13 +83,8 @@ def testintelligence():
                         elif catergory == "placesOrOrganizations":
                             places.append(f'{indivvideo}')
                         videos.append(f'{indivvideo}')
-            print(people)
-            print(places)
-
-
-        return render_template('testintelligence.html', session=session,videos=videos, places=places, people=people, lenplaces=len(places),
-                           lenpeople=len(people))
-
+        return render_template('testintelligence.html', session=session, videos=videos, places=places, people=people, lenplaces=len(places),
+                               lenpeople=len(people))
     else:
         return redirect('/convertwav')
 
@@ -136,7 +131,6 @@ def convertwav():
             print("transcript: " + transcript)
             return redirect('/textanalysis')  # change in later/test
 
-
     return render_template('convertwav.html')
 
 
@@ -155,6 +149,7 @@ def contactform():
         session['email_sent'] = True
         return redirect('/#footer')
     return redirect('/#footer')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
