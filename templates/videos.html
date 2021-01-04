@@ -72,7 +72,24 @@
         {% endfor %}
     </div>
 
+    <div>
+        <h1>People</h1>
+        {% for person in people %}
+        <iframe src="{{person}}" frameborder="0" width="24%"
+            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        {% endfor %}
     </div>
+
+    <div>
+        <h1>Places</h1>
+        {% for place in places %}
+        <iframe src="{{place}}" frameborder="0" width="24%"
+            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        {% endfor %}
+    </div>
+
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.scrollex.min.js"></script>
     <script src="static/js/jquery.scrolly.min.js"></script>
