@@ -3,6 +3,7 @@ import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
 import emailer as email
 import speech_recognition as sr
+from emailAnalysis import send_email
 
 # import summarizer as summ
 
@@ -47,8 +48,9 @@ def textanalysis():
         if request.method == 'POST':
             emailform = request.form
             reciever = emailform['email']
-            email.send_email('Your transcript from AudioLec',
-                             session['transcript'], reciever, 'hackathon2020', 'audiolec4@gmail.com')
+            subject = emailform['subject']
+            send_email(f"{subject} - Your AudioLec Lecture", session['transcript'], reciever,
+                       'hackathon2020', 'audiolec4@gmail.com')
         keywords = api.sample_analyze_entities(session['transcript'])
         session['keywords'] = keywords
         return render_template('textanalysis.html', session=session)

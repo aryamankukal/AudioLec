@@ -123,11 +123,12 @@
         .modal-content {
             background-color: #fefefe;
             padding: 20px;
-            margin: 5% auto 15% auto;
+            margin: 10% auto 15% auto;
             /* 5% from the top, 15% from the bottom and centered */
             border: 1px solid #888;
-            width: 80%;
-            height: 30%;
+            width: 60%;
+            height: 40%;
+            border-radius: 7px;
             /* Could be more or less, depending on screen size */
         }
 
@@ -210,32 +211,40 @@
             <button class="buttons" style="font: inherit; color: #242424; margin-top: 10px;"
                 onclick="document.getElementById('id01').style.display='block'">Email Analysis</button>
 
-            <div id="id01" class="modal" style="">
+            <div id="id01" class="modal" style="border-radius: 7px;">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">×</span>
                 <form class="modal-content" action="/textanalysis" method="POST" style="">
-                    <div class="container">
-                        <h1 style="color: black;">Please enter your email</h1>
+                    <div class="container" style="">
+                        <h1 style="color: black; font-size: 16px;">Please enter your details</h1>
                         <div class="clearfix">
-                            <input type="text" class="emailinput" name='email' style="color: black;" />
+                            <input type="text" class="emailinput" name='email'
+                                style="color: black; border-width: 2px; border-radius: 7px; margin-top: 10px;"
+                                placeholder="Email" />
+                            <br>
+                            <input type="text" class="emailinput" name='subject'
+                                style="color: black; margin-top: 15px; border-radius: 7px; border-width: 2px;"
+                                placeholder="Lecture Title" />
                             <br>
                             <input id="submit" type="submit"
                                 onclick="document.getElementById('id01').style.display='none'" class="deletebtn"
-                                style="background-color: #db4f4f; margin-top: 20px;" value="Send!" />
+                                style="background-color: #db4f4f; margin-top: 20px; border-radius: 7px;"
+                                value="Send!" />
                         </div>
                     </div>
                 </form>
             </div>
             <form action="/youtubevids" style="margin: 10px;">
-                <button class="buttons" style="font: inherit; color: #242424;">Get Youtube Videos</button>
+                <button class="buttons" style="font: inherit; color: #242424;"><strong>View Supplemental
+                        Videos</strong></button>
             </form>
         </div>
     </div>
 
     <div style="text-align: center; margin-top: 8vh;">
-        <h1>Here is Your Transcript. You Can Edit it Before Copying or Emailing.</h1>
+        <h1>Here is your transcript. You can edit it before copying or emailing.</h1>
         <textarea rows="8" cols="100" id="transcript"
-            style="color: black; align-self: center;">{{session['transcript']}}</textarea>
+            style="color: black; align-self: center; border-radius: 7px;">{{session['transcript']}}</textarea>
 
     </div>
 
