@@ -113,14 +113,17 @@ def youtubevids():
 def convertwav():
     transcript = ""
     if request.method == "POST":
-        if "file" not in request.files:
+        if "myfiles[]" not in request.files:
+            print('not there')
             return redirect(request.url)
 
-        file = request.files["file"]
+        file = request.files["myfiles[]"]
         if file.filename == "":
+            print("empty")
             return redirect(request.url)
 
         if file:
+            print("file")
             recognizer = sr.Recognizer()
             audioFile = sr.AudioFile(file)
             with audioFile as source:
@@ -149,6 +152,7 @@ def contactform():
         session['email_sent'] = True
         return redirect('/#footer')
     return redirect('/#footer')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -105,15 +105,15 @@
         </form>
     </div> -->
 
-    <div class="custom-file-upload" style="position: absolute; top: 50%; left: 37%;">
-        <!--<label for="file">File: </label>-->
-        <input type="file" id="file" name="myfiles[]" multiple />
-    </div>
-
     <form enctype="multipart/form-data" method="POST">
-        <button id="submitButton"
-            style="height: 30px; background-color: #292b36; outline: none; border: none; width: 100%; border-radius: 7px;"><b
-                style="color: #ffffff;font: inherit;">Transcribe</b></button>
+        <div class="custom-file-upload" style="position: absolute; top: 50%; left: 37%;">
+            <!--<label for="file">File: </label>-->
+            <input type="file" id="file" name="myfiles[]" multiple />
+            <button id="submitButton"
+                style="float: left; background-color: #292b36; outline: none; border: none; width: 100%; border-radius: 7px;"><b
+                    style="color: #ffffff;font: inherit;">Transcribe</b></button>
+        </div>
+
     </form>
 
     <script>

@@ -34,7 +34,6 @@
             background-position: 100%
         }
     }
-
 </style>
 
 <body>
@@ -61,7 +60,9 @@
 
     <div style="margin: auto;">
         {% for video in videos %}
-            <iframe src="{{video}}" frameborder="0" width="24.6%"  allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="{{video}}" frameborder="0" width="24.6%"
+            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         {% endfor %}
     </div>
 
