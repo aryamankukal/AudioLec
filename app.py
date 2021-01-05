@@ -114,16 +114,13 @@ def convertwav():
     transcript = ""
     if request.method == "POST":
         if "myfiles[]" not in request.files:
-            print('not there')
             return redirect(request.url)
 
         file = request.files["myfiles[]"]
         if file.filename == "":
-            print("empty")
             return redirect(request.url)
 
         if file:
-            print("file")
             recognizer = sr.Recognizer()
             audioFile = sr.AudioFile(file)
             with audioFile as source:
@@ -131,7 +128,6 @@ def convertwav():
                 data = recognizer.record(source)
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
-            print("transcript: " + transcript)
             return redirect('/textanalysis')  # change in later/test
 
     return render_template('convertwav.html')

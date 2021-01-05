@@ -30,14 +30,15 @@ def sample_analyze_entities(text_content):
         else:
             other.append(entity[0])
 
+    print(len(people), len(placesOrOrganizations), len(other))
     people5 = []
     placesOrOrganizations5 = []
     other5 = []
-    for x in people[:10]:
+    for x in people:  # people[:20]:
         people5.append(x)
-    for y in placesOrOrganizations[:10]:
+    for y in placesOrOrganizations:  # placesOrOrganizations[:20]:
         placesOrOrganizations5.append(y)
-    for z in other[:10]:
+    for z in other:  # other[:20]:
         other5.append(z)
 
     peoplePlacesOrganOther = {
