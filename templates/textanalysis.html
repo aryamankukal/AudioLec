@@ -172,6 +172,70 @@
         #transcript:focus {
             outline: none;
         }
+
+        /* Basic button styling */
+
+        .pulsingButton {
+            width: 220px;
+            border: none;
+            outline: none;
+            text-align: center;
+            white-space: nowrap;
+            display: block;
+            margin: 50px auto;
+            padding: 10px;
+            box-shadow: 0 0 0 0 #db4f4f;
+            border-radius: 10px;
+            background-color: #db4f4f;
+            -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            font-size: 22px;
+            font-weight: normal;
+            font-family: sans-serif;
+            text-decoration: none !important;
+            color: #ffffff;
+            transition: all 300ms ease-in-out;
+        }
+
+
+        /* Comment-out to have the button continue to pulse on mouseover */
+
+        button.pulsingButton:hover {
+            -webkit-animation: none;
+            -moz-animation: none;
+            -ms-animation: none;
+            animation: none;
+            color: #ffffff;
+        }
+
+
+        /* Animation */
+
+        @-webkit-keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 30px #db4f4f;
+            }
+        }
+
+        @-moz-keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+            }
+        }
+
+        @-ms-keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+            }
+        }
+
+        @keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+            }
+        }
     </style>
 </head>
 
@@ -234,11 +298,19 @@
                     </div>
                 </form>
             </div>
-            <form action="/youtubevids" style="margin: 10px;">
-                <button class="buttons" style="font: inherit; color: #242424;"><strong>View Supplemental
-                        Videos</strong></button>
+            <form action="#" style="margin: 10px;">
+                <button class="buttons" style="font: inherit; color: #242424;"><strong>Create a Google
+                        Docs</strong></button>
             </form>
         </div>
+        <form>
+            <button class="pulsingButton">Videos</button>
+        </form>
+
+        <!-- <form action="/youtubevids" style="margin: 10px;">
+            <button class="buttons" style="font: inherit; color: #242424;"><strong>View Supplemental
+                    Videos</strong></button>
+        </form> -->
     </div>
 
     <div style="text-align: center; margin-top: 8vh;">

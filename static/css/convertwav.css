@@ -86,7 +86,7 @@ p {
     text-transform: uppercase;
     padding: 11px 20px;
     margin-left: -1px;  
-    background-color: #95959e; 
+    background-color: #db4f4f; 
     float: left; /* IE 9 Fix */
     @include transition(all 0.2s ease-in);
     &:hover {
