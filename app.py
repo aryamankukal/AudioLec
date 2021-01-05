@@ -44,15 +44,29 @@ def delscript():
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
 def textanalysis():
+    videos = []
+    # people = []
+    # places = []
     if 'transcript' in session:
         if request.method == 'POST':
             emailform = request.form
             reciever = emailform['email']
             subject = emailform['subject']
             send_email(f"{subject} - Your AudioLec Lecture", session['transcript'], reciever,
-                       'hackathon2020', 'audiolec4@gmail.com')
+                       'hackathon2020', 'audiolec4@gmail.com', session['videos'], session['keywords'])
         keywords = api.sample_analyze_entities(session['transcript'])
         session['keywords'] = keywords
+        if 'keywords' in session:
+            for catergory, keywords in session['keywords'].items():
+                for keyword in keywords:
+                    video = getYT.searchVideoForKeyword(keyword)
+                    for indivvideo in video:
+                        #     if catergory == "people":
+                        #         people.append(f'{indivvideo}')
+                        #     elif catergory == "placesOrOrganizations":
+                        #         places.append(f'{indivvideo}')
+                        videos.append(f'{indivvideo}')
+            session['videos'] = videos
         return render_template('textanalysis.html', session=session)
     else:
         return redirect('/convertwav')
