@@ -67,7 +67,9 @@ def textanalysis():
                         #         places.append(f'{indivvideo}')
                         videos.append(f'{indivvideo}')
             session['videos'] = videos
-        return render_template('textanalysis.html', session=session)
+            length_keywords = len(session['keywords']['people']) + len(
+                session['keywords']['placesOrOrganizations']) + len(session['keywords']['other'])
+        return render_template('textanalysis.html', session=session, length_keywords=length_keywords)
     else:
         return redirect('/convertwav')
 
