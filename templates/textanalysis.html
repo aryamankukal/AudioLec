@@ -23,8 +23,8 @@
             /* 24a0ed  */
             border: none;
             outline: none;
-            height: 44px;
-            border-radius: 5px;
+            height: 40px;
+            border-radius: 7px;
         }
 
         .buttons:hover {
@@ -120,7 +120,7 @@
         }
 
         /* The Modal Close Button (x) */
-        .close {
+        .close1 {
             position: absolute;
             right: 35px;
             top: 15px;
@@ -129,8 +129,8 @@
             color: #f1f1f1;
         }
 
-        .close:hover,
-        .close:focus {
+        .close1:hover,
+        .close1:focus {
             color: #f44336;
             cursor: pointer;
         }
@@ -163,7 +163,7 @@
             text-align: center;
             white-space: nowrap;
             display: block;
-            margin: 17px auto;
+            margin: 20px auto;
             padding: 10px;
             box-shadow: 0 0 0 0 #db4f4f;
             border-radius: 8px;
@@ -197,25 +197,25 @@
 
         @-webkit-keyframes pulsing {
             to {
-                box-shadow: 0 0 0 30px #db4f4f;
+                box-shadow: 0 0 0 15px #db4f4f;
             }
         }
 
         @-moz-keyframes pulsing {
             to {
-                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
             }
         }
 
         @-ms-keyframes pulsing {
             to {
-                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
             }
         }
 
         @keyframes pulsing {
             to {
-                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
             }
         }
     </style>
@@ -252,7 +252,7 @@
     <!--<div class="wrapper"></div>-->
 
     <div>
-        <h1 style="color: white; text-align: center; margin-top: 15vh; font-size: 25px;">Analysis Completed</h1>
+        <h1 style="color: white; text-align: center; margin-top: 10vh; font-size: 25px;">Analysis Completed</h1>
         <h2 style="color: white; text-align: center;">Please select an option:</h2>
         <div style="display: flex; text-align: center; justify-content: center;">
             <button class="buttons" onclick="copy()" style="font: inherit; color: #ffffff; margin: 10px;">Copy
@@ -261,7 +261,7 @@
                 onclick="document.getElementById('id01').style.display='block'">Email Analysis</button>
 
             <div id="id01" class="modal" style="border-radius: 7px;">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                <span onclick="document.getElementById('id01').style.display='none'" class="close1"
                     title="Close Modal">×</span>
                 <form class="modal-content" action="/textanalysis" method="POST">
                     <div class="container">
@@ -291,7 +291,7 @@
             </form>
         </div>
         <form action="/youtubevids">
-            <button class="pulsingButton">Videos</button>
+            <button class="pulsingButton">View Videos</button>
         </form>
 
         <!-- <form action="/youtubevids" style="margin: 10px;">
@@ -300,8 +300,8 @@
         </form> -->
     </div>
 
-    <div style="text-align: center; padding-top: 17px;">
-        <h3>Import topics to pay attention to:</h3>
+    <div style="text-align: center; padding-top: 30px;">
+        <h3>Important topics to pay attention to:</h3>
         {% for catergory, keywords in session['keywords'].items() %}
         {% for keyword in keywords %}
         <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
@@ -318,7 +318,7 @@
     </div>
 
     <button
-        style="width: 15%; margin-left: 42.5%; margin-right: 42.5%; margin-top: 60px; color:#FFFFFF; margin-bottom: 20px; font-size: 20px; padding: 6px;"
+        style="height: 35px; width: 15%; margin-left: 42.5%; margin-right: 42.5%; margin-top: 40px; color:#FFFFFF; margin-bottom: 20px; font-size: 16px; padding: 6px;"
         class="buttons">Record
         again</button>
 
