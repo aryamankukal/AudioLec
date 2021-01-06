@@ -44,16 +44,6 @@ def sample_analyze_entities(text_content):
         print(z)
         other5.append(z)
 
-    for x in people5:
-        if x.is_integer():
-            people5.remove(x)
-    for x in placesOrOrganizations5:
-        if x.is_integer():
-            placesOrOrganizations5.remove(x)
-    for x in other5:
-        if x.is_integer():
-            other5.remove(x)
-
     peoplePlacesOrganOther = {
         "people": people5, "placesOrOrganizations": placesOrOrganizations5, "other": other5}
 
