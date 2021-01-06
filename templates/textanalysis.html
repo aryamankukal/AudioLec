@@ -163,16 +163,16 @@
             text-align: center;
             white-space: nowrap;
             display: block;
-            margin: 50px auto;
+            margin: 17px auto;
             padding: 10px;
             box-shadow: 0 0 0 0 #db4f4f;
-            border-radius: 10px;
+            border-radius: 8px;
             background-color: #db4f4f;
             -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
             -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
             -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
             animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-            font-size: 22px;
+            font-size: 18px;
             font-weight: normal;
             font-family: sans-serif;
             text-decoration: none !important;
@@ -263,7 +263,7 @@
             <div id="id01" class="modal" style="border-radius: 7px;">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Close Modal">×</span>
-                <form class="modal-content" action="/textanalysis" method="POST" style="">
+                <form class="modal-content" action="/textanalysis" method="POST">
                     <div class="container">
                         <h1 style="color: black; font-size: 16px;">Please enter your details</h1>
                         <div class="clearfix">
@@ -300,7 +300,17 @@
         </form> -->
     </div>
 
-    <div style="text-align: center; margin-top: 8vh;">
+    <div style="text-align: center; padding-top: 17px;">
+        <h3>Import topics to pay attention to:</h3>
+        {% for catergory, keywords in session['keywords'].items() %}
+        {% for keyword in keywords %}
+        <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
+        <br>
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center; padding-top: 8vh;">
         <h1>This is your transcript. You can edit, copy, or email it.</h1>
         <textarea rows="8" cols="100" id="transcript"
             style="color: black; align-self: center; border-radius: 7px;">{{session['transcript']}}</textarea>
@@ -308,7 +318,7 @@
     </div>
 
     <button
-        style="width: 15%; margin-left: 42.5%; margin-right: 42.5%; margin-top: 60px; color:#FFFFFF; font-size: 20px; padding: 6px;"
+        style="width: 15%; margin-left: 42.5%; margin-right: 42.5%; margin-top: 60px; color:#FFFFFF; margin-bottom: 20px; font-size: 20px; padding: 6px;"
         class="buttons">Record
         again</button>
 
@@ -327,6 +337,7 @@
                 modal.style.display = "none";
             }
         }
+
     </script>
 
     <!--js link continued-->
@@ -334,6 +345,7 @@
     <script src="static/js/jquery.scrollex.min.js"></script>
     <script src="static/js/jquery.scrolly.min.js"></script>
     <script src="static/js/browser.min.js"></script>
+
     <script src="static/js/breakpoints.min.js"></script>
     <script src="static/js/util.js"></script>
     <script src="static/js/main.js"></script>
