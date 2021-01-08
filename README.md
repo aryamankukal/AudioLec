@@ -18,6 +18,8 @@ pipenv install: pip3 install pipenv
 
 google-cloud-language
 
+## Getting Started
+
 ```
 # Clone the project
 $ git clone https://github.com/aryamankukal/AudioLec.git
@@ -30,4 +32,7 @@ $ pip3 install google-cloud-language --user
 $ python "AudioLec/app.py"
 
 ```
+
+## Running
+
 Open localhost and try the app out http://127.0.0.1:5000/
