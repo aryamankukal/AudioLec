@@ -14,7 +14,7 @@ Our simple and efficient service allows students to effectively expand their kno
 
 Python 3.7
 
-pipenv install: pip3 install pipenv
+pipenv
 
 google-cloud-language
 
@@ -25,13 +25,17 @@ google-cloud-language
 $ git clone https://github.com/aryamankukal/AudioLec.git
 
 # Installations
-$ pip install pipenv
+$ pip3 install pipenvo
+
+```
+### add the "--user" only if you are a macOS user or you run into an error, othwerise, the command is without "--user"
+```
 $ pip3 install google-cloud-language --user
 
 # Run Application
 $ python "AudioLec/app.py"
-
 ```
+
 
 ## Running
 
