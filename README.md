@@ -13,3 +13,15 @@ Our simple and efficient service allows students to effectively expand their kno
 Python 3.7
 
 pipenv install: pip3 install pipenv
+
+```
+# Clone the project
+$ git clone https://github.com/aryamankukal/AudioLec.git
+
+# Install
+$ pip install pipenv
+
+# Run Application
+$ pipenv run python app.py
+
+```
