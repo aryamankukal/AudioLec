@@ -18,6 +18,8 @@ pipenv
 
 google-cloud-language
 
+speech_recognition
+
 ## Getting Started
 
 ### add  "--user" at the end of the installation statements only if you are a macOS user or if you run into an error, othwerise, the command is without "--user"
@@ -34,11 +36,13 @@ $ pip3 install pipenv
 # "--user" can be added here if needed
 $ pip3 install google-cloud-language
 
+# "--user" can be added here if needed
+$ pip3 install SpeechRecognition
+
 # Run Application
 $ python "AudioLec/app.py"
 
 ```
-
 
 ## Running
 
