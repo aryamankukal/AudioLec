@@ -20,6 +20,9 @@ google-cloud-language
 
 ## Getting Started
 
+### add the "--user" only if you are a macOS user or if you run into an error, othwerise, the command is without "--user"
+
+
 ```
 # Clone the project
 $ git clone https://github.com/aryamankukal/AudioLec.git
@@ -27,13 +30,11 @@ $ git clone https://github.com/aryamankukal/AudioLec.git
 # Installations
 $ pip3 install pipenvo
 
-```
-### add the "--user" only if you are a macOS user or you run into an error, othwerise, the command is without "--user"
-```
 $ pip3 install google-cloud-language --user
 
 # Run Application
 $ python "AudioLec/app.py"
+
 ```
 
 
