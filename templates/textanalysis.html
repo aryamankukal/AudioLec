@@ -301,13 +301,26 @@
     </div>
 
     <div style="text-align: center; padding-top: 30px;">
-        <h3>We found {{length_keywords}} topics to pay attention to:</h3>
-        {% for catergory, keywords in session['keywords'].items() %}
-        {% for keyword in keywords %}
-        <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
-        <br>
-        {% endfor %}
-        {% endfor %}
+        {% if length_keywords == 1 %}
+            <h3>We found {{length_keywords}} topic to pay attention to:</h3>
+            {% for catergory, keywords in session['keywords'].items() %}
+            {% for keyword in keywords %}
+            <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
+            <br>
+            {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+        {% if length_keywords > 1 %}
+            <h3>We found {{length_keywords}} topics to pay attention to:</h3>
+            {% for catergory, keywords in session['keywords'].items() %}
+            {% for keyword in keywords %}
+            <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
+            <br>
+            {% endfor %}
+            {% endfor %}
+        {% endif %}
+
     </div>
 
     <div style="text-align: center; padding-top: 8vh;">
@@ -340,7 +353,6 @@
             }
         }
 
-    </script>
 
     <!--js link continued-->
     <script src="static/js/jquery.min.js"></script>
@@ -351,6 +363,7 @@
     <script src="static/js/breakpoints.min.js"></script>
     <script src="static/js/util.js"></script>
     <script src="static/js/main.js"></script>
+
 </body>
 
 </html>
