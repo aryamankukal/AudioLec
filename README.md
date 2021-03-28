@@ -18,7 +18,7 @@ speech_recognition
 
 ## Getting Started
 
-### add  "--user" at the end of the installation statements only if you are a macOS user or if you run into an error, othwerise, the command is without "--user"
+add  "--user" at the end of the installation statements only if you are a macOS user or if you run into an error, othwerise, the command is without "--user"
 
 
 ```
