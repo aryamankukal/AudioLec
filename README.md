@@ -6,7 +6,7 @@ Our simple and efficient service allows students to effectively expand their kno
 * **HackTheLib: Most Complex Hack**
 * **STHacks: Most Community Liked Hack**
 
-Please watch [our demo]**(https://youtu.be/vqJR_MNoJP0)** to see our app's functionality.
+Please watch **[our demo](https://youtu.be/vqJR_MNoJP0)** to see our app's functionality.
 
 # How to Run Our App:
 
