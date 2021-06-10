@@ -5,10 +5,12 @@ import emailer as email
 import speech_recognition as sr
 from emailAnalysis import send_email
 
+hello = 123
 # import summarizer as summ
 
 
 app = Flask(__name__)
+app.secret_key = 'thisisasecretkey'
 app.secret_key = 'thisisasecretkey'
 
 
@@ -57,53 +59,19 @@ def textanalysis():
         keywords = api.sample_analyze_entities(session['transcript'])
         session['keywords'] = keywords
         if 'keywords' in session:
-            for catergory, keywords in session['keywords'].items():
-                for keyword in keywords:
-                    video = getYT.searchVideoForKeyword(keyword)
-                    for indivvideo in video:
+            for keyword in keywords:
+                video = getYT.searchVideoForKeyword(keyword)
+                for indivvideo in video:
                         #     if catergory == "people":
                         #         people.append(f'{indivvideo}')
                         #     elif catergory == "placesOrOrganizations":
                         #         places.append(f'{indivvideo}')
-                        videos.append(f'{indivvideo}')
+                    videos.append(f'{indivvideo}')
             session['videos'] = videos
-            length_keywords = len(session['keywords']['people']) + len(
-                session['keywords']['placesOrOrganizations']) + len(session['keywords']['other'])
-        return render_template('textanalysis.html', session=session, length_keywords=length_keywords)
-    else:
-        return redirect('/convertwav')
-
-
-@app.route('/testintelligence', methods=['GET', 'POST'])
-def testintelligence():
-    if 'transcript' in session:
-        if request.method == 'POST':
-            emailform = request.form
-            reciever = emailform['email']
-            subject = emailform['subject']
-            send_email(f"{subject} - Your AudioLec Lecture", session['transcript'], reciever,
-                       'hackathon2020', 'audiolec4@gmail.com')
-        keywords = api.sample_analyze_entities(session['transcript'])
-        session['keywords'] = keywords
-
-        videos = []
-        people = []
-        places = []
-        if 'keywords' in session:
-            for catergory, keywords in session['keywords'].items():
-                for keyword in keywords:
-                    video = getYT.searchVideoForKeyword(keyword)
-                    for indivvideo in video:
-                        if catergory == "people":
-                            people.append(f'{indivvideo}')
-                        elif catergory == "placesOrOrganizations":
-                            places.append(f'{indivvideo}')
-                        videos.append(f'{indivvideo}')
-        return render_template('testintelligence.html', session=session, videos=videos, places=places, people=people, lenplaces=len(places),
-                               lenpeople=len(people))
-    else:
-        return redirect('/convertwav')
-
+            length_keywords = len(session['keywords'])
+            return render_template('textanalysis.html', session=session, length_keywords=length_keywords)
+        else:
+            return redirect('/convertwav')
 
 @app.route('/youtubevids')
 def youtubevids():
@@ -166,5 +134,6 @@ def contactform():
     return redirect('/#footer')
 
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="localhost", port=5500, debug=True)
