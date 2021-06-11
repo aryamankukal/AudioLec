@@ -93,7 +93,7 @@ def youtubevids():
         for keyword in session['keywords']:
             video = getYT.searchVideoForKeyword(keyword);
             for singlevid in video:
-                videos.append(f'{indivvideo}')
+                videos.append(f'{singlevid}')
 
         return render_template('videos.html', videos=videos)
     else:
