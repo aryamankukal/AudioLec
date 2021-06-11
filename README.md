@@ -10,4 +10,4 @@ Our simple and efficient service allows students to effectively expand their kno
 
 Please watch **[our demo](https://youtu.be/vqJR_MNoJP0)** to see our app's functionality.
 
-### Try our app out **[here](https://audiolec.herokuapp.com/)**.
+### Try AudioLec out **[here](https://audiolec.herokuapp.com/)**.
