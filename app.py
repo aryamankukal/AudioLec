@@ -5,7 +5,7 @@ import emailer as email
 import speech_recognition as sr
 from emailAnalysis import send_email
 
-sped = 123
+sped = 1234
 # import summarizer as summ
 
 
