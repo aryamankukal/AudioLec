@@ -69,6 +69,8 @@ def textanalysis():
                     videos.append(f'{indivvideo}')
             session['videos'] = videos
             length_keywords = len(session['keywords'])
+            print(session['videos'])
+            print(session['keywords'])
             return render_template('textanalysis.html', session=session, length_keywords=length_keywords)
         else:
             return redirect('/convertwav')
@@ -79,15 +81,20 @@ def youtubevids():
     # people = []
     # places = []
     if 'keywords' in session:
-        for catergory, keywords in session['keywords'].items():
-            for keyword in keywords:
-                video = getYT.searchVideoForKeyword(keyword)
-                for indivvideo in video:
-                    #     if catergory == "people":
-                    #         people.append(f'{indivvideo}')
-                    #     elif catergory == "placesOrOrganizations":
-                    #         places.append(f'{indivvideo}')
-                    videos.append(f'{indivvideo}')
+        # for catergory, keywords in session['keywords'].items():
+        #     for keyword in keywords:
+        #         video = getYT.searchVideoForKeyword(keyword)
+        #         for indivvideo in video:
+        #             #     if catergory == "people":
+        #             #         people.append(f'{indivvideo}')
+        #             #     elif catergory == "placesOrOrganizations":
+        #             #         places.append(f'{indivvideo}')
+        #             videos.append(f'{indivvideo}')
+        for keyword in session['keywords']:
+            video = getYT.searchVideoForKeyword(keyword);
+            for singlevid in video:
+                videos.append(f'{indivvideo}')
+
         return render_template('videos.html', videos=videos)
     else:
         return redirect('/convertwav')

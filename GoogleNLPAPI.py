@@ -1,8 +1,8 @@
-from google.cloud import language_v1
+# from google.cloud import language_v1
 
 import os
 import spacy
-import pytextrank
+# import pytextrank
 
 
 # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/gkukal/PycharmProjects/HackTheLib/googleNLPAPIcodes.json"
@@ -12,6 +12,14 @@ import pytextrank
 
 def sample_analyze_entities(text_content):
     nlp = spacy.load("en_core_web_sm")
+
+    doc = nlp(text_content)
+    peoplePlacesOrganOther = []
+
+    for ent in doc.ents:
+        peoplePlacesOrganOther.append(ent.text)
+
+    return peoplePlacesOrganOther
 
     # client = language_v1.LanguageServiceClient()
     # type_ = language_v1.Document.Type.PLAIN_TEXT
@@ -55,10 +63,3 @@ def sample_analyze_entities(text_content):
     #     "people": people5, "placesOrOrganizations": placesOrOrganizations5, "other": other5}
 
 
-    doc = nlp(text_content)
-    peoplePlacesOrganOther = []
-
-    for ent in doc.ents:
-        peoplePlacesOrganOther.append(ent.text)
-
-    return peoplePlacesOrganOther

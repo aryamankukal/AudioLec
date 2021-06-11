@@ -1,148 +1,146 @@
 <!DOCTYPE html>
 <html>
+	<!--js and css links-->
 
-<!--js and css links-->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Audio Recorder</title>
+		<link rel="stylesheet" href="/static/css/textanalysis.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Recorder</title>
-    <link rel="stylesheet" href="/static/css/textanalysis.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<style>
+			@import url(fontawesome-all.min.css);
+			@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
-    <style>
-        @import url(fontawesome-all.min.css);
-        @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+			body {
+				background-color: #222830;
+			}
 
-        body {
-            background-color: #222830;
-        }
+			.buttons {
+				background-color: #db4f4f;
+				/* 24a0ed  */
+				border: none;
+				outline: none;
+				height: 40px;
+				border-radius: 7px;
+			}
 
-        .buttons {
-            background-color: #db4f4f;
-            /* 24a0ed  */
-            border: none;
-            outline: none;
-            height: 40px;
-            border-radius: 7px;
-        }
+			.buttons:hover {
+				background-color: #c44343;
+				outline: none;
+				box-shadow: 5px;
+			}
 
-        .buttons:hover {
-            background-color: #c44343;
-            outline: none;
-            box-shadow: 5px;
-        }
+			/* Float cancel and delete buttons and add an equal width */
+			.cancelbtn,
+			.deletebtn {
+				/* float: left; */
+				width: 100%;
+			}
 
-        /* Float cancel and delete buttons and add an equal width */
-        .cancelbtn,
-        .deletebtn {
-            /* float: left; */
-            width: 100%;
-        }
+			/* Add a color to the cancel button */
+			.cancelbtn {
+				background-color: #ccc;
+				color: black;
+			}
 
-        /* Add a color to the cancel button */
-        .cancelbtn {
-            background-color: #ccc;
-            color: black;
-        }
+			.emailinput {
+				width: 300px;
+			}
 
-        .emailinput {
-            width: 300px;
-        }
+			/* Add a color to the delete button */
+			.deletebtn {
+				background-color: #f44336;
+				outline: none;
+				border: none;
+				border-radius: 3px;
+				margin-top: 10px;
+				width: 300px;
+				height: 30px;
+				padding: 3px;
+			}
 
-        /* Add a color to the delete button */
-        .deletebtn {
-            background-color: #f44336;
-            outline: none;
-            border: none;
-            border-radius: 3px;
-            margin-top: 10px;
-            width: 300px;
-            height: 30px;
-            padding: 3px;
-        }
+			.deletebtn:focus {
+				outline: none;
+				border: none;
+			}
 
-        .deletebtn:focus {
-            outline: none;
-            border: none;
-        }
+			.deletebtn:hover {
+				outline: none;
+				border: none;
+				background-color: #d43f34;
+			}
 
-        .deletebtn:hover {
-            outline: none;
-            border: none;
-            background-color: #d43f34;
-        }
+			/* Add padding and center-align text to the container */
+			.container {
+				padding: 16px;
+				text-align: center;
+			}
 
-        /* Add padding and center-align text to the container */
-        .container {
-            padding: 16px;
-            text-align: center;
+			/* The Modal (background) */
+			.modal {
+				display: none;
+				/* Hidden by default */
+				position: fixed;
+				/* Stay in place */
+				z-index: 1;
+				/* Sit on top */
+				left: 0;
+				top: 0;
+				width: 100%;
+				/* Full width */
+				height: 100%;
+				/* Full height */
+				overflow: auto;
+				/* Enable scroll if needed */
+				background-color: #474e5d;
+				padding-top: 50px;
+			}
 
-        }
+			/* Modal Content/Box */
+			.modal-content {
+				background-color: #fefefe;
+				padding: 20px;
+				margin: 10% auto 15% auto;
+				/* 5% from the top, 15% from the bottom and centered */
+				border: 1px solid #888;
+				width: 60%;
+				height: 40%;
+				border-radius: 7px;
+				/* Could be more or less, depending on screen size */
+			}
 
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: #474e5d;
-            padding-top: 50px;
-        }
+			/* Style the horizontal ruler */
+			hr {
+				border: 1px solid #f1f1f1;
+				margin-bottom: 25px;
+			}
 
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            padding: 20px;
-            margin: 10% auto 15% auto;
-            /* 5% from the top, 15% from the bottom and centered */
-            border: 1px solid #888;
-            width: 60%;
-            height: 40%;
-            border-radius: 7px;
-            /* Could be more or less, depending on screen size */
-        }
+			/* The Modal Close Button (x) */
+			.close1 {
+				position: absolute;
+				right: 35px;
+				top: 15px;
+				font-size: 40px;
+				font-weight: bold;
+				color: #f1f1f1;
+			}
 
-        /* Style the horizontal ruler */
-        hr {
-            border: 1px solid #f1f1f1;
-            margin-bottom: 25px;
-        }
+			.close1:hover,
+			.close1:focus {
+				color: #f44336;
+				cursor: pointer;
+			}
 
-        /* The Modal Close Button (x) */
-        .close1 {
-            position: absolute;
-            right: 35px;
-            top: 15px;
-            font-size: 40px;
-            font-weight: bold;
-            color: #f1f1f1;
-        }
+			/* Clear floats */
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
 
-        .close1:hover,
-        .close1:focus {
-            color: #f44336;
-            cursor: pointer;
-        }
-
-        /* Clear floats */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        /* Change styles for cancel button and delete button on extra small screens
+			/* Change styles for cancel button and delete button on extra small screens
         @media screen and (max-width: 300px) {
 
             .cancelbtn,
@@ -150,220 +148,273 @@
                 width: 100%;
             }
         } */
-        #transcript:focus {
-            outline: none;
-        }
+			#transcript:focus {
+				outline: none;
+			}
 
-        /* Basic button styling */
+			/* Basic button styling */
 
-        .pulsingButton {
-            width: 220px;
-            border: none;
-            outline: none;
-            text-align: center;
-            white-space: nowrap;
-            display: block;
-            margin: 20px auto;
-            padding: 10px;
-            box-shadow: 0 0 0 0 #db4f4f;
-            border-radius: 8px;
-            background-color: #db4f4f;
-            -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-            -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-            -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-            animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-            font-size: 18px;
-            font-weight: normal;
-            font-family: sans-serif;
-            text-decoration: none !important;
-            color: #ffffff;
-            transition: all 300ms ease-in-out;
-        }
+			.pulsingButton {
+				width: 220px;
+				border: none;
+				outline: none;
+				text-align: center;
+				white-space: nowrap;
+				display: block;
+				margin: 20px auto;
+				padding: 10px;
+				box-shadow: 0 0 0 0 #db4f4f;
+				border-radius: 8px;
+				background-color: #db4f4f;
+				-webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+				-moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+				-ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+				animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+				font-size: 18px;
+				font-weight: normal;
+				font-family: sans-serif;
+				text-decoration: none !important;
+				color: #ffffff;
+				transition: all 300ms ease-in-out;
+			}
 
+			/* Comment-out to have the button continue to pulse on mouseover */
 
-        /* Comment-out to have the button continue to pulse on mouseover */
+			button.pulsingButton:hover {
+				-webkit-animation: none;
+				-moz-animation: none;
+				-ms-animation: none;
+				animation: none;
+				color: #ffffff;
+				background-color: #ff5e5e;
+			}
 
-        button.pulsingButton:hover {
-            -webkit-animation: none;
-            -moz-animation: none;
-            -ms-animation: none;
-            animation: none;
-            color: #ffffff;
-            background-color: #ff5e5e;
-        }
+			/* Animation */
 
+			@-webkit-keyframes pulsing {
+				to {
+					box-shadow: 0 0 0 15px #db4f4f;
+				}
+			}
 
-        /* Animation */
+			@-moz-keyframes pulsing {
+				to {
+					box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
+				}
+			}
 
-        @-webkit-keyframes pulsing {
-            to {
-                box-shadow: 0 0 0 15px #db4f4f;
-            }
-        }
+			@-ms-keyframes pulsing {
+				to {
+					box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
+				}
+			}
 
-        @-moz-keyframes pulsing {
-            to {
-                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
-            }
-        }
+			@keyframes pulsing {
+				to {
+					box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
+				}
+			}
+		</style>
 
-        @-ms-keyframes pulsing {
-            to {
-                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
-            }
-        }
+		<link rel="icon" href="static/images/finalLogo.png" />
+	</head>
 
-        @keyframes pulsing {
-            to {
-                box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
-            }
-        }
-    </style>
+	<body>
+		<header id="header">
+			<h1><a href="/">AudioLec</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/record">Record</a></li>
+								<li><a href="/convertwav">Upload Recording</a></li>
+								<li><a href="/#three">Meet the Team</a></li>
+								<li><a href="/#footer">Contact Us</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-    <link rel="icon" href="static/images/finalLogo.png">
+		<!--gradient animated background-->
 
-</head>
+		<!--<div class="wrapper"></div>-->
 
-<body>
-    <header id="header">
-        <h1><a href="/">AudioLec</a></h1>
-        <nav id="nav">
-            <ul>
-                <li class="special">
-                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                    <div id="menu">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/record">Record</a></li>
-                            <li><a href="/convertwav">Upload Recording</a></li>
-                            <li><a href="/#three">Meet the Team</a></li>
-                            <li><a href="/#footer">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+		<div>
+			<h1 style="color: white; text-align: center; margin-top: 10vh; font-size: 25px">
+				Analysis Complete
+			</h1>
+			<!-- <h2 style="color: white; text-align: center;">Please select an option:</h2> -->
+			<div style="display: flex; text-align: center; justify-content: center">
+				<button
+					class="buttons"
+					onclick="copy()"
+					style="font: inherit; color: #ffffff; margin: 10px"
+				>
+					Copy Text
+				</button>
+				<button
+					class="buttons"
+					style="font: inherit; color: #ffffff; margin-top: 10px"
+					onclick="document.getElementById('id01').style.display='block'"
+				>
+					Email Analysis
+				</button>
 
+				<div id="id01" class="modal" style="border-radius: 7px">
+					<span
+						onclick="document.getElementById('id01').style.display='none'"
+						class="close1"
+						title="Close Modal"
+						>×</span
+					>
+					<form class="modal-content" action="/textanalysis" method="POST">
+						<div class="container">
+							<h1 style="color: black; font-size: 16px">Please enter your details</h1>
+							<div class="clearfix">
+								<input
+									type="text"
+									class="emailinput"
+									name="email"
+									style="
+										color: black;
+										border-width: 2px;
+										border-radius: 7px;
+										margin-top: 10px;
+									"
+									placeholder="Email"
+								/>
+								<br />
+								<input
+									type="text"
+									class="emailinput"
+									name="subject"
+									style="
+										color: black;
+										margin-top: 15px;
+										border-radius: 7px;
+										border-width: 2px;
+									"
+									placeholder="Lecture Title"
+								/>
+								<br />
+								<input
+									id="submit"
+									type="submit"
+									onclick="document.getElementById('id01').style.display='none'"
+									class="deletebtn"
+									style="
+										background-color: #db4f4f;
+										margin-top: 20px;
+										border-radius: 7px;
+									"
+									value="Send!"
+								/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<form style="margin: 10px">
+					<button class="buttons" style="font: inherit; color: #ffffff">
+						<a
+							href="https://doc.new"
+							style="
+								text-decoration: none;
+								outline: none;
+								border: none;
+								-moz-outline-style: none;
+							"
+							target="_blank"
+							>Create a Google Docs</a
+						>
+					</button>
+				</form>
+			</div>
+			<form action="/youtubevids">
+				<button class="pulsingButton">View Videos</button>
+			</form>
 
-
-    <!--gradient animated background-->
-
-    <!--<div class="wrapper"></div>-->
-
-    <div>
-        <h1 style="color: white; text-align: center; margin-top: 10vh; font-size: 25px;">Analysis Complete</h1>
-        <!-- <h2 style="color: white; text-align: center;">Please select an option:</h2> -->
-        <div style="display: flex; text-align: center; justify-content: center;">
-            <button class="buttons" onclick="copy()" style="font: inherit; color: #ffffff; margin: 10px;">Copy
-                Text</button>
-            <button class="buttons" style="font: inherit; color: #ffffff; margin-top: 10px;"
-                onclick="document.getElementById('id01').style.display='block'">Email Analysis</button>
-
-            <div id="id01" class="modal" style="border-radius: 7px;">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close1"
-                    title="Close Modal">×</span>
-                <form class="modal-content" action="/textanalysis" method="POST">
-                    <div class="container">
-                        <h1 style="color: black; font-size: 16px;">Please enter your details</h1>
-                        <div class="clearfix">
-                            <input type="text" class="emailinput" name='email'
-                                style="color: black; border-width: 2px; border-radius: 7px; margin-top: 10px;"
-                                placeholder="Email" />
-                            <br>
-                            <input type="text" class="emailinput" name='subject'
-                                style="color: black; margin-top: 15px; border-radius: 7px; border-width: 2px;"
-                                placeholder="Lecture Title" />
-                            <br>
-                            <input id="submit" type="submit"
-                                onclick="document.getElementById('id01').style.display='none'" class="deletebtn"
-                                style="background-color: #db4f4f; margin-top: 20px; border-radius: 7px;"
-                                value="Send!" />
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <form style="margin: 10px;">
-                <button class="buttons" style="font: inherit; color:#FFFFFF;"><a href="https://doc.new"
-                        style="text-decoration: none; outline: none; border: none; -moz-outline-style: none;"
-                        target="_blank">Create a Google
-                        Docs</a></button>
-            </form>
-        </div>
-        <form action="/youtubevids">
-            <button class="pulsingButton">View Videos</button>
-        </form>
-
-        <!-- <form action="/youtubevids" style="margin: 10px;">
+			<!-- <form action="/youtubevids" style="margin: 10px;">
             <button class="buttons" style="font: inherit; color: #242424;"><strong>View Supplemental
                     Videos</strong></button>
         </form> -->
-    </div>
+		</div>
 
-    <div style="text-align: center; padding-top: 30px;">
-        {% if length_keywords == 1 %}
-            <h3>We found {{length_keywords}} topic to pay attention to:</h3>
-            {% for catergory, keywords in session['keywords'].items() %}
-            {% for keyword in keywords %}
-            <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
-            <br>
-            {% endfor %}
-            {% endfor %}
-        {% endif %}
+		<div style="text-align: center; padding-top: 30px">
+			{% if length_keywords == 1 %}
+			<h3>We found {{length_keywords}} topic to pay attention to:</h3>
+			{% for keyword in session['keywords'] %}
+			<a href="https://www.google.com/search?q={{keyword}}" target="_blank"
+				><strong>{{keyword}}</strong></a
+			>
+			<br />
+			{% endfor %} {% endif %} {% if length_keywords > 1 %}
+			<h3>We found {{length_keywords}} topics to pay attention to:</h3>
+			{% for keyword in session['keywords'] %}
+			<a href="https://www.google.com/search?q={{keyword}}" target="_blank"
+				><strong>{{keyword}}</strong></a
+			>
+			<br />
+			{% endfor %} {% endif %}
+		</div>
 
-        {% if length_keywords > 1 %}
-            <h3>We found {{length_keywords}} topics to pay attention to:</h3>
-            {% for catergory, keywords in session['keywords'].items() %}
-            {% for keyword in keywords %}
-            <a href="https://www.google.com/search?q={{keyword}}" target="_blank"><strong>{{keyword}}</strong></a>
-            <br>
-            {% endfor %}
-            {% endfor %}
-        {% endif %}
+		<div style="text-align: center; padding-top: 8vh">
+			<h1>This is your transcript. You can edit, copy, or email it.</h1>
+			<textarea
+				rows="8"
+				cols="100"
+				id="transcript"
+				style="color: black; align-self: center; border-radius: 7px"
+			>
+{{session['transcript']}}</textarea
+			>
+		</div>
 
-    </div>
+		<form action="/record">
+			<button
+				style="
+					height: 35px;
+					width: 15%;
+					margin-left: 42.5%;
+					margin-right: 42.5%;
+					margin-top: 40px;
+					color: #ffffff;
+					margin-bottom: 20px;
+					font-size: 16px;
+					padding: 6px;
+				"
+				class="buttons"
+			>
+				Record again
+			</button>
+		</form>
+		<script>
+			function copy() {
+				var copyTranscript = document.getElementById("transcript");
+				copyTranscript.classList.toggle("show");
+				copyTranscript.select();
+				document.execCommand("copy");
+			}
+			var modal = document.getElementById("id01");
 
-    <div style="text-align: center; padding-top: 8vh;">
-        <h1>This is your transcript. You can edit, copy, or email it.</h1>
-        <textarea rows="8" cols="100" id="transcript"
-            style="color: black; align-self: center; border-radius: 7px;">{{session['transcript']}}</textarea>
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			};
+		</script>
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.scrollex.min.js"></script>
+		<script src="static/js/jquery.scrolly.min.js"></script>
+		<script src="static/js/browser.min.js"></script>
 
-    </div>
-
-    <form action="/record">
-        <button
-            style="height: 35px; width: 15%; margin-left: 42.5%; margin-right: 42.5%; margin-top: 40px; color:#FFFFFF; margin-bottom: 20px; font-size: 16px; padding: 6px;"
-            class="buttons">Record
-            again</button>
-
-    </form>
-    <script>
-        function copy() {
-            var copyTranscript = document.getElementById('transcript')
-            copyTranscript.classList.toggle("show");
-            copyTranscript.select();
-            document.execCommand('copy')
-        }
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-
-    <!--js link continued-->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.scrollex.min.js"></script>
-    <script src="static/js/jquery.scrolly.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
-
-</body>
-
+		<script src="static/js/breakpoints.min.js"></script>
+		<script src="static/js/util.js"></script>
+		<script src="static/js/main.js"></script>
+	</body>
 </html>
