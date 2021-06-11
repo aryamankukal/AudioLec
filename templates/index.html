@@ -1,300 +1,325 @@
-<!DOCTYPE HTML>
-<html style="scroll-behavior: smooth;">
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth">
+	<head>
+		<title>AudioLec</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+			rel="stylesheet"
+			id="bootstrap-css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript>
+			<link rel="stylesheet" href="static/css/noscript.css" />
+		</noscript>
 
-<head>
-	<title>AudioLec</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="static/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="static/css/noscript.css" />
-	</noscript>
+		<link rel="icon" href="static/images/finalLogo.png" />
 
-	<link rel="icon" href="static/images/finalLogo.png">
+		<style>
+			.row.heading h2 {
+				color: #fff;
+				font-size: 52.52px;
+				line-height: 95px;
+				font-weight: 400;
+				text-align: center;
+				margin: 0 0 40px;
+				padding-bottom: 20px;
+				text-transform: uppercase;
+			}
 
-	<style>
-		.row.heading h2 {
-			color: #fff;
-			font-size: 52.52px;
-			line-height: 95px;
-			font-weight: 400;
-			text-align: center;
-			margin: 0 0 40px;
-			padding-bottom: 20px;
-			text-transform: uppercase;
-		}
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
 
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
+			.heading.heading-icon {
+				display: block;
+			}
 
-		.heading.heading-icon {
-			display: block;
-		}
+			.padding-lg {
+				display: block;
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
 
-		.padding-lg {
-			display: block;
-			padding-top: 60px;
-			padding-bottom: 60px;
-		}
+			.practice-area.padding-lg {
+				padding-bottom: 55px;
+				padding-top: 55px;
+			}
 
-		.practice-area.padding-lg {
-			padding-bottom: 55px;
-			padding-top: 55px;
-		}
+			.practice-area .innert {
+				border: 1px solid #999999;
+				text-align: center;
+				margin-bottom: 28px;
+				padding: 40px 25px;
+			}
 
-		.practice-area .innert {
-			border: 1px solid #999999;
-			text-align: center;
-			margin-bottom: 28px;
-			padding: 40px 25px;
-		}
+			.our-webcoderskull .cnt-block:hover {
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+				border: 0;
+				text-decoration: none;
+			}
 
-		.our-webcoderskull .cnt-block:hover {
-			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-			border: 0;
-			text-decoration: none;
-		}
+			.practice-area .innert h3 {
+				color: #3c3c3c;
+				font-size: 24px;
+				font-weight: 500;
+				font-family: "Poppins", sans-serif;
+				padding: 10px 0;
+			}
 
-		.practice-area .innert h3 {
-			color: #3c3c3c;
-			font-size: 24px;
-			font-weight: 500;
-			font-family: 'Poppins', sans-serif;
-			padding: 10px 0;
-		}
+			.practice-area .innert p {
+				font-size: 14px;
+				line-height: 22px;
+				font-weight: 400;
+			}
 
-		.practice-area .innert p {
-			font-size: 14px;
-			line-height: 22px;
-			font-weight: 400;
-		}
+			.practice-area .innert img {
+				display: inline-block;
+			}
 
-		.practice-area .innert img {
-			display: inline-block;
-		}
+			.our-webcoderskull {
+				background: url("") no-repeat center top / cover;
+			}
 
+			.our-webcoderskull .cnt-block {
+				float: left;
+				width: 100%;
+				background: #1d242a;
+				padding: 30px 20px;
+				text-align: center;
+				border: 2px solid #db4f4f;
+				margin: 0 0 28px;
+				text-decoration: none;
+			}
 
-		.our-webcoderskull {
-			background: url("") no-repeat center top / cover;
+			.our-webcoderskull .cnt-block figure {
+				width: 148px;
+				height: 148px;
+				border-radius: 100%;
+				display: inline-block;
+				margin-bottom: 15px;
+			}
 
-		}
+			.our-webcoderskull .cnt-block img {
+				width: 148px;
+				height: 148px;
+				border-radius: 100%;
+			}
 
-		.our-webcoderskull .cnt-block {
-			float: left;
-			width: 100%;
-			background: #1d242a;
-			padding: 30px 20px;
-			text-align: center;
-			border: 2px solid #db4f4f;
-			margin: 0 0 28px;
-			text-decoration: none;
-		}
+			.our-webcoderskull .cnt-block h3 {
+				color: #2a2a2a;
+				font-size: 20px;
+				font-weight: 500;
+				padding: 6px 0;
+				text-transform: uppercase;
+			}
 
-		.our-webcoderskull .cnt-block figure {
-			width: 148px;
-			height: 148px;
-			border-radius: 100%;
-			display: inline-block;
-			margin-bottom: 15px;
-		}
+			.our-webcoderskull .cnt-block h3 a {
+				text-decoration: none;
+				color: #2a2a2a;
+			}
 
-		.our-webcoderskull .cnt-block img {
-			width: 148px;
-			height: 148px;
-			border-radius: 100%;
-		}
+			.our-webcoderskull .cnt-block h3 a:hover {
+				color: #337ab7;
+			}
 
-		.our-webcoderskull .cnt-block h3 {
-			color: #2a2a2a;
-			font-size: 20px;
-			font-weight: 500;
-			padding: 6px 0;
-			text-transform: uppercase;
-		}
+			.our-webcoderskull .cnt-block p {
+				color: #2a2a2a;
+				font-size: 17px;
+				line-height: 20px;
+				font-weight: 400;
+			}
 
-		.our-webcoderskull .cnt-block h3 a {
-			text-decoration: none;
-			color: #2a2a2a;
-		}
+			.our-webcoderskull .cnt-block .follow-us {
+				margin: 20px 0 0;
+			}
 
-		.our-webcoderskull .cnt-block h3 a:hover {
-			color: #337ab7;
-		}
+			.our-webcoderskull .cnt-block .follow-us li {
+				display: inline-block;
+				width: auto;
+				margin: 0 5px;
+			}
 
-		.our-webcoderskull .cnt-block p {
-			color: #2a2a2a;
-			font-size: 17px;
-			line-height: 20px;
-			font-weight: 400;
-		}
+			.our-webcoderskull .cnt-block .follow-us li .fa {
+				font-size: 24px;
+				color: #767676;
+			}
 
-		.our-webcoderskull .cnt-block .follow-us {
-			margin: 20px 0 0;
-		}
+			.our-webcoderskull .cnt-block .follow-us li .fa:hover {
+				color: #025a8e;
+			}
 
-		.our-webcoderskull .cnt-block .follow-us li {
-			display: inline-block;
-			width: auto;
-			margin: 0 5px;
-		}
+			.myBtn {
+				height: 50px;
+				width: 80px;
+				display: none;
+				position: fixed;
+				bottom: 15px;
+				right: 15px;
+				z-index: 99;
+				padding: 0px;
+				font-size: 15px;
+				border: none;
+				outline: none;
+				background-color: transparent;
+				color: white;
+				cursor: pointer;
+				border-radius: 4px;
+				vertical-align: middle;
+				display: table-cell;
+			}
 
-		.our-webcoderskull .cnt-block .follow-us li .fa {
-			font-size: 24px;
-			color: #767676;
-		}
+			.myBtn:hover {
+				height: 53px;
+				width: 83px;
+				background: #db4f4f;
+			}
 
-		.our-webcoderskull .cnt-block .follow-us li .fa:hover {
-			color: #025a8e;
-		}
+			input[type="text"],
+			input[type="password"] {
+				width: 600px;
+				margin: auto;
+				-webkit-transition: width 0.4s ease-in-out;
+				transition: width 0.4s ease-in-out;
+				outline: none;
+			}
 
-		.myBtn {
-			height: 50px;
-			width: 80px;
-			display: none;
-			position: fixed;
-			bottom: 15px;
-			right: 15px;
-			z-index: 99;
-			padding: 0px;
-			font-size: 15px;
-			border: none;
-			outline: none;
-			background-color: transparent;
-			color: white;
-			cursor: pointer;
-			border-radius: 4px;
-			vertical-align: middle;
-			display: table-cell;
-		}
+			.img-responsive:hover {
+				background: #ffffff;
+			}
 
-		.myBtn:hover {
-			height: 53px;
-			width: 83px;
-			background: #db4f4f;
-		}
-
-		input[type=text],
-		input[type=password] {
-			width: 600px;
-			margin: auto;
-			-webkit-transition: width 0.4s ease-in-out;
-			transition: width 0.4s ease-in-out;
-			outline: none;
-		}
-
-		.img-responsive:hover {
-			background: #ffffff;
-		}
-
-		/* When the input field gets focus, change its width to 100% */
-		/* input[type=text]:focus,
+			/* When the input field gets focus, change its width to 100% */
+			/* input[type=text]:focus,
 		input[type=password]:focus {
 			width: 70%;
 		} */
+		</style>
+	</head>
 
+	<body class="landing is-preload">
+		<button
+			type="button"
+			onclick="topFunction(); return false;"
+			class="myBtn"
+			title="Go to top"
+		>
+			Top
+		</button>
 
-	</style>
-</head>
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+			<!-- Header -->
+			<header id="header" class="alt">
+				<h1><a style="text-decoration: none" href="/#top">AudioLec</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li><a href="/record">Record</a></li>
+									<li><a href="/convertwav">Upload Recording</a></li>
+									<li><a href="#three">Meet the Team</a></li>
+									<li><a href="#footer">Contact Us</a></li>
+									<li>
+										<a href="javascript: document.body.scrollIntoView(false);"
+											>Our Demo</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
 
-<body class="landing is-preload">
+			<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>AudioLec</h2>
+					<p>
+						Using NLP and Speech to Simplify <br />
+						Class Lectures During Online Learning
+					</p>
+					<ul class="actions special">
+						<li><a href="/record" class="button primary">Start Recording</a></li>
+					</ul>
+				</div>
+				<a href="#one" class="more scrolly">Learn More</a>
+			</section>
 
-	<button type="button" onclick="topFunction(); return false;" class="myBtn" title="Go to top">Top</button>
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<header id="header" class="alt">
-			<h1><a style="text-decoration: none;" href="/#top">AudioLec</a></h1>
-			<nav id="nav">
-				<ul>
-					<li class="special">
-						<a href="#menu" class="menuToggle"><span>Menu</span></a>
-						<div id="menu">
-							<ul>
-								<li><a href="/">Home</a></li>
-								<li><a href="/record">Record</a></li>
-								<li><a href="/convertwav">Upload Recording</a></li>
-								<li><a href="#three">Meet the Team</a></li>
-								<li><a href="#footer">Contact Us</a></li>
-								<li><a href="javascript: document.body.scrollIntoView(false);">Our Demo</a></li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</header>
-
-		<!-- Banner -->
-		<section id="banner">
-			<div class="inner">
-				<h2>AudioLec</h2>
-				<p>Using NLP and Speech to Simplify <br> Class Lectures During Online Learning</p>
-				<ul class="actions special">
-					<li><a href="/record" class="button primary">Start Recording</a></li>
-				</ul>
-			</div>
-			<a href="#one" class="more scrolly">Learn More</a>
-		</section>
-
-		<!-- One -->
-		<section id="one" class="wrapper style1 special">
-			<div class="inner">
-				<header class="major">
-					<h2 style="font-size: 35px;">Our Mission</h2>
-					<p>Our simple and efficient service allows students to effectively expand
-						their knowledge on the subjects they are learning by
-						recommending them relevant and enlightening videos based on
-						their teacher's lectures. Using Speech Recognition and Natural
-						Language Processing, we are paving the path towards an education
-						system in which every student has the resources to learn above
-						and beyond.</p>
-				</header>
-				<!--<ul class="icons major">-->
-				<!--<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>-->
-				<!--<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>-->
-				<!--<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>-->
-				<!--</ul>-->
-			</div>
-		</section>
-
-		<!-- Two -->
-		<section id="two" class="wrapper alt style2">
-			<section class="spotlight">
-				<div class="image"><img src="static/images/micPicForHacks.png" alt="" /></div>
-				<div class="content">
-					<h2>Record<br />
-					</h2>
-					<p>Use built-in speech recognition technology to record a lecture and get it transcribed.</p>
+			<!-- One -->
+			<section id="one" class="wrapper style1 special">
+				<div class="inner">
+					<header class="major">
+						<h2 style="font-size: 35px">Our Mission</h2>
+						<p>
+							Our simple and efficient service allows students to effectively expand
+							their knowledge on the subjects they are learning by recommending them
+							relevant and enlightening videos based on their teacher's lectures.
+							Using Speech Recognition and Natural Language Processing, we are paving
+							the path towards an education system in which every student has the
+							resources to learn above and beyond.
+						</p>
+					</header>
+					<!--<ul class="icons major">-->
+					<!--<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>-->
+					<!--<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>-->
+					<!--<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>-->
+					<!--</ul>-->
 				</div>
 			</section>
-			<section class="spotlight">
-				<div class="image"><img src="static/images/viewImageForHackscrop.png" alt="" /></div>
-				<div class="content">
-					<h2>View</h2>
-					<p>View an analysis report which includes a transcription, entity analysis, and smart video
-						recommendations based on the lesson.</p>
-				</div>
-			</section>
-			<section class="spotlight">
-				<div class="image"><img src="static/images/sendImageForHackscrop.png" alt="" /></div>
-				<div class="content">
-					<h2>Send</h2>
-					<p>Have the report emailed to yourself for quick reference or added into a Google Doc for safer
-						keeping.</p>
-				</div>
-			</section>
-		</section>
 
-		<!-- Three -->
-		<section id="three" class="wrapper style3 special">
-			<!-- <div class="inner">
+			<!-- Two -->
+			<section id="two" class="wrapper alt style2">
+				<section class="spotlight">
+					<div class="image"><img src="static/images/micPicForHacks.png" alt="" /></div>
+					<div class="content">
+						<h2>Record<br /></h2>
+						<p>
+							Use built-in speech recognition technology to record a lecture and get
+							it transcribed.
+						</p>
+					</div>
+				</section>
+				<section class="spotlight">
+					<div class="image">
+						<img src="static/images/viewImageForHackscrop.png" alt="" />
+					</div>
+					<div class="content">
+						<h2>View</h2>
+						<p>
+							View an analysis report which includes a transcription, entity analysis,
+							and smart video recommendations based on the lesson.
+						</p>
+					</div>
+				</section>
+				<section class="spotlight">
+					<div class="image">
+						<img src="static/images/sendImageForHackscrop.png" alt="" />
+					</div>
+					<div class="content">
+						<h2>Send</h2>
+						<p>
+							Have the report emailed to yourself for quick reference or added into a
+							Google Doc for safer keeping.
+						</p>
+					</div>
+				</section>
+			</section>
+
+			<!-- Three -->
+			<section id="three" class="wrapper style3 special">
+				<!-- <div class="inner">
 				<header class="major">
 					<h2>Accumsan mus tortor nunc aliquet</h2>
 					<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
@@ -333,155 +358,265 @@
 					</li>
 				</ul>
 			</div> -->
-			<section class="our-webcoderskull padding-lg">
-				<div class="container">
-					<div class="row heading heading-icon">
-						<h2>Meet the Team</h2>
+				<section class="our-webcoderskull padding-lg">
+					<div class="container">
+						<div class="row heading heading-icon">
+							<h2>Meet the Team</h2>
+						</div>
+						<ul class="row">
+							<li class="col-12 col-md-6 col-lg-3">
+								<div
+									class="cnt-block equal-hight"
+									style="
+										height: 349px;
+										box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);
+										border-color: #db4f4f;
+										background: linear-gradient(45deg, #212529, #363d45);
+									"
+								>
+									<figure>
+										<img
+											src="static/images/aryamanPic (1).jpg"
+											class="img-responsive"
+											alt=""
+										/>
+									</figure>
+									<h3>
+										<a
+											style="
+												text-decoration: none;
+												color: #ffffff;
+												outline: 0;
+												border: 0;
+											"
+											target="_blank;"
+											href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/"
+											>Aryaman <br />
+											Kukal</a
+										>
+									</h3>
+									<p style="color: #ffffff">Fullstack, Backend</p>
+								</div>
+							</li>
+							<li class="col-12 col-md-6 col-lg-3">
+								<div
+									class="cnt-block equal-hight"
+									style="
+										height: 349px;
+										box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);
+										background: linear-gradient(45deg, #212529, #363d45);
+									"
+								>
+									<figure>
+										<img
+											src="static/images/joelPic (1).jpg"
+											class="img-responsive"
+											alt=""
+										/>
+									</figure>
+									<h3>
+										<a
+											style="
+												text-decoration: none;
+												color: #ffffff;
+												outline: 0;
+												border: 0;
+											"
+											target="_blank;"
+											href="#"
+											>Joel <br />
+											Johnson</a
+										>
+									</h3>
+									<p style="color: #ffffff">Fullstack, Backend</p>
+								</div>
+							</li>
+							<li class="col-12 col-md-6 col-lg-3">
+								<div
+									class="cnt-block equal-hight"
+									style="
+										height: 349px;
+										box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);
+										background: linear-gradient(45deg, #212529, #363d45);
+									"
+								>
+									<figure>
+										<img
+											src="static/images/chaityaPic.jpg"
+											class="img-responsive"
+											alt=""
+										/>
+									</figure>
+									<h3>
+										<a
+											style="
+												text-decoration: none;
+												color: #ffffff;
+												outline: 0;
+												border: 0;
+											"
+											target="_blank;"
+											href="#"
+											>Chaitya Jodhavat</a
+										>
+									</h3>
+									<p style="color: #ffffff">Frontend, UI Developer</p>
+								</div>
+							</li>
+							<li class="col-12 col-md-6 col-lg-3">
+								<div
+									class="cnt-block equal-hight"
+									style="
+										height: 349px;
+										box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3);
+										background: linear-gradient(45deg, #212529, #363d45);
+									"
+								>
+									<figure>
+										<img
+											src="static/images/sriramPic (1).jpg"
+											width="auto"
+											height="auto"
+											class="img-responsive"
+											alt=""
+										/>
+									</figure>
+									<h3>
+										<a
+											style="
+												text-decoration: none;
+												color: #ffffff;
+												outline: 0;
+												border: 0;
+											"
+											target="_blank;"
+											href="#"
+											>Sriram Natarajan</a
+										>
+									</h3>
+									<p style="color: #ffffff">UI Developer, Designer</p>
+								</div>
+							</li>
+						</ul>
 					</div>
-					<ul class="row">
-						<li class="col-12 col-md-6 col-lg-3">
-							<div class="cnt-block equal-hight"
-								style="height: 349px; box-shadow: 10px 5px 10px rgba(0,0,0,.3); border-color: #db4f4f; background: linear-gradient(45deg, #212529, #363d45);">
-								<figure><img src="static/images/aryamanPic (1).jpg" class="img-responsive" alt="">
-								</figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
-										target=_blank;
-										href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/">Aryaman <br>
-										Kukal</a></h3>
-								<p style="color: #ffffff;">Fullstack, Backend</p>
-							</div>
-						</li>
-						<li class="col-12 col-md-6 col-lg-3">
-							<div class="cnt-block equal-hight"
-								style="height: 349px; box-shadow: 10px 5px 10px rgba(0,0,0,.3); background: linear-gradient(45deg, #212529, #363d45);">
-								<figure><img src="static/images/joelPic (1).jpg" class="img-responsive" alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
-										target=_blank; href="#">Joel <br> Johnson</a></h3>
-								<p style="color: #ffffff;">Fullstack, Backend</p>
-							</div>
-						</li>
-						<li class="col-12 col-md-6 col-lg-3">
-							<div class="cnt-block equal-hight"
-								style="height: 349px; box-shadow: 10px 5px 10px rgba(0,0,0,.3); background: linear-gradient(45deg, #212529, #363d45);">
-								<figure><img src="static/images/chaityaPic.jpg" class="img-responsive" alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
-										target=_blank; href="#">Chaitya Jodhavat</a></h3>
-								<p style="color: #ffffff;">Frontend, UI Developer</p>
-							</div>
-						</li>
-						<li class="col-12 col-md-6 col-lg-3">
-							<div class="cnt-block equal-hight"
-								style="height: 349px; box-shadow: 10px 5px 10px rgba(0,0,0,.3); background: linear-gradient(45deg, #212529, #363d45);">
-								<figure><img src="static/images/sriramPic (1).jpg" width="auto" height="auto"
-										class="img-responsive" alt=""></figure>
-								<h3><a style="text-decoration: none; color: #ffffff; outline: 0; border: 0;"
-										target=_blank; href="#">Sriram Natarajan</a></h3>
-								<p style="color: #ffffff;">UI Developer, Designer</p>
-							</div>
-						</li>
+				</section>
+			</section>
+
+			<!-- CTA -->
+			<section id="cta" class="wrapper style4">
+				<div class="inner">
+					<header>
+						<h2>AudioLec</h2>
+						<p>Class Lectures. But simpler.</p>
+					</header>
+					<ul class="actions stacked">
+						<xiv style="width: 250px">
+							<li>
+								<a href="/record" class="button primary" style="width: 100%"
+									>Start Recording</a
+								>
+							</li>
+							<li>
+								<a href="#footer" class="button primary" style="width: 100%"
+									>Contact Us</a
+								>
+							</li>
+						</xiv>
 					</ul>
 				</div>
 			</section>
-		</section>
 
-		<!-- CTA -->
-		<section id="cta" class="wrapper style4">
-			<div class="inner">
-				<header>
-					<h2>AudioLec</h2>
-					<p>Class Lectures. But simpler.</p>
-				</header>
-				<ul class="actions stacked">
-					<xiv style="width: 250px;">
-						<li><a href="/record" class="button primary" style="width: 100%;">Start Recording</a></li>
-						<li><a href="#footer" class="button primary" style="width: 100%;">Contact Us</a></li>
-					</xiv>
+			<!-- Footer -->
+			<footer style="height: auto" id="footer">
+				<ul class="icons">
+					<!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+					<!--<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+					<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
+					<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+					<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
+					<form action="/contactform" style="margin: auto" method="POST">
+						<!--{% if session['email_sent'] == True %}-->
+						<!--<h1>Success, email sent!</h1>-->
+						<!--{% elif session['valid'] == False %}-->
+						<!--<h1>Please fill out the whole form</h1>-->
+						<!--{% endif %}-->
+						<div style="display: flex; justify-content: center">
+							<div style="margin-right: 10px">
+								<label for="">Email</label>
+								<input type="text" class="contactme" name="email" />
+								<br />
+								<label for="">Subject</label>
+								<input type="text" class="contactme" name="subject" />
+								<br />
+							</div>
+							<div style="margin-left: 10px">
+								<label for="">How Can We Help You?</label>
+								<input
+									type="text"
+									class="contactme"
+									name="message"
+									style="height: 300px; padding-bottom: 250px"
+								/>
+								<br />
+							</div>
+						</div>
+						<input type="submit" />
+					</form>
 				</ul>
-			</div>
-		</section>
+				<!--<ul class="copyright">-->
+				<!--&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;-->
+				<!--&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;-->
+				<!--</ul>-->
+			</footer>
 
-		<!-- Footer -->
-		<footer style="height: auto;" id="footer">
-			<ul class="icons">
-				<!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
-				<!--<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
-				<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
-				<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
-				<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
-				<form action="/contactform" style="margin: auto;" method="POST">
-					<!--{% if session['email_sent'] == True %}-->
-					<!--<h1>Success, email sent!</h1>-->
-					<!--{% elif session['valid'] == False %}-->
-					<!--<h1>Please fill out the whole form</h1>-->
-					<!--{% endif %}-->
-					<div style="display: flex; justify-content: center;">
-						<div style="margin-right: 10px;">
-							<label for="">Email</label>
-							<input type="text" class="contactme" name="email">
-							<br>
-							<label for="">Subject</label>
-							<input type="text" class="contactme" name="subject">
-							<br>
-						</div>
-						<div style="margin-left: 10px;">
-							<label for="">How Can We Help You?</label>
-							<input type="text" class="contactme" name="message"
-								style="height: 300px; padding-bottom: 250px;">
-							<br>
-						</div>
-					</div>
-					<input type="submit">
-				</form>
-			</ul>
-			<!--<ul class="copyright">-->
-			<!--&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;-->
-			<!--&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;-->
-			<!--</ul>-->
-		</footer>
+			<h1 style="margin-top: 150px; margin-left: 555px; font-size: 50px">Our Demo</h1>
 
+			<iframe
+				style="margin-top: 30px; margin-bottom: 150px; margin-left: 475px"
+				width="500"
+				height="300"
+				src="https://www.youtube.com/embed/vqJR_MNoJP0"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			></iframe>
+		</div>
 
-		<h1 style="margin-top: 150px; margin-left: 555px; font-size: 50px;">Our Demo</h1>
-
-		<iframe style="margin-top: 30px; margin-bottom: 150px; margin-left: 475px; " width="500" height="300" src="https://www.youtube.com/embed/vqJR_MNoJP0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-	</div>
-
-	<script>
-		function topFunction() {
-			document.documentElement.scrollTop = 0;
-		}
-
-		let spinnerWrapper = document.querySelector('.spinner-wrapper');
-
-		window.addEventListener('load', function () {
-			// spinnerWrapper.style.display = 'none';
-			spinnerWrapper.parentElement.removeChild(spinnerWrapper);
-		});
-		var mybutton = document.getElementById("myBtn");
-
-		// When the user scrolls down 20px from the top of the document, show the button
-		window.onscroll = function () { scrollFunction() };
-
-		function scrollFunction() {
-			if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-				mybutton.style.display = "block";
-			} else {
-				mybutton.style.display = "none";
+		<script>
+			function topFunction() {
+				document.documentElement.scrollTop = 0;
 			}
-		}
 
-		// When the user clicks on the button, scroll to the top of the document
+			let spinnerWrapper = document.querySelector(".spinner-wrapper");
 
+			window.addEventListener("load", function () {
+				// spinnerWrapper.style.display = 'none';
+				spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+			});
+			var mybutton = document.getElementByClassName("myBtn");
 
-	</script>
-	<!-- Scripts -->
-	<script src="static/js/jquery.min.js"></script>
-	<script src="static/js/jquery.scrollex.min.js"></script>
-	<script src="static/js/jquery.scrolly.min.js"></script>
-	<script src="static/js/browser.min.js"></script>
-	<script src="static/js/breakpoints.min.js"></script>
-	<script src="static/js/util.js"></script>
-	<script src="static/js/main.js"></script>
-</body>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction();
+			};
 
+			function scrollFunction() {
+				if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+		</script>
+		<!-- Scripts -->
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.scrollex.min.js"></script>
+		<script src="static/js/jquery.scrolly.min.js"></script>
+		<script src="static/js/browser.min.js"></script>
+		<script src="static/js/breakpoints.min.js"></script>
+		<script src="static/js/util.js"></script>
+		<script src="static/js/main.js"></script>
+	</body>
 </html>
