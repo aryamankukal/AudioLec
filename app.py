@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import GoogleNLPAPI as api
-import getYoutubeVideoLinks as getYTpip
+import getYoutubeVideoLinks as getYT
 import emailer as email
 import speech_recognition as sr
 from emailAnalysis import send_email
