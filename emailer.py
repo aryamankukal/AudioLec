@@ -1,6 +1,5 @@
 import smtplib
 
-variable = 12345
 def send_email(subject, msg, RECIEVER_ADDRESS, PASSWORD, SENDER_ADDRESS):
     try:
         server = smtplib.SMTP('smtp.gmail.com:587')
