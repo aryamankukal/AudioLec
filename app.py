@@ -1,17 +1,45 @@
+from posixpath import split
 from flask import Flask, render_template, request, url_for, redirect, session
 import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
 import emailer as email
 import speech_recognition as sr
 from emailAnalysis import send_email
-
-helloMyNameIs = "hello"
-# import summarizer as summ
-
+from pydub import AudioSegment
+import math
+import os
+import glob
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
-app.secret_key = 'thisisasecretkey'
+
+class SplitWavAudioMubin():
+    def __init__(self, folder, file):
+        # dirname = os.path.dirname(__file__)
+        # self.folder = os.path.join(dirname, 'relative/path/to/file/you/want')
+        self.folder = folder
+        self.filename = "audio"
+        self.filepath = file
+        
+        self.audio = AudioSegment.from_wav(self.filepath)
+    
+    def get_duration(self):
+        return self.audio.duration_seconds
+    
+    def single_split(self, from_min, to_min, split_filename):
+        t1 = from_min * 60 * 1000
+        t2 = to_min * 60 * 1000
+        split_audio = self.audio[t1:t2]
+        split_audio.export(self.folder + '\\' + split_filename, format="wav")
+        
+    def multiple_split(self, min_per_split):
+        total_mins = math.ceil(self.get_duration() / 60)
+        for i in range(0, total_mins, min_per_split):
+            split_fn = str(i) + '_' + self.filename + ".wav"
+            self.single_split(i, i+min_per_split, split_fn)
+            print(str(i) + ' Done')
+            if i == total_mins - min_per_split:
+                print('All splited successfully')
 
 
 @app.route('/delallsessions')
@@ -69,8 +97,6 @@ def textanalysis():
                     videos.append(f'{indivvideo}')
             session['videos'] = videos
             length_keywords = len(session['keywords'])
-            print(session['videos'])
-            print(session['keywords'])
             return render_template('textanalysis.html', session=session, length_keywords=length_keywords)
         else:
             return redirect('/convertwav')
@@ -112,13 +138,33 @@ def convertwav():
             return redirect(request.url)
 
         if file:
+            # create recognizer object
             recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(file)
-            with audioFile as source:
-                recognizer.adjust_for_ambient_noise(source)
-                data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data, key=None)
-            session['transcript'] = transcript
+
+            # split files
+            split_wav = SplitWavAudioMubin(f"{os.path.dirname(__file__)}\\audiofiles", file)
+            split_wav.multiple_split(min_per_split=1)
+
+            # loop through split files
+            session["transcript"] = ""
+            for wavfile in glob.glob(f"audiofiles/*.wav"):
+                audioFile = sr.AudioFile(wavfile)
+                with audioFile as source:
+                   recognizer.adjust_for_ambient_noise(source)
+                   data = recognizer.record(source)
+                   transcript = recognizer.recognize_google(data, key=None)
+                   session["transcript"] += transcript
+
+            filelist = [ f for f in os.listdir(f"audiofiles") if f.endswith(".wav")]
+            for indivfile in filelist:
+                os.remove(os.path.join(f"audiofiles", indivfile))
+
+            # audioFile = sr.AudioFile(file)
+            # with audioFile as source:
+            #     recognizer.adjust_for_ambient_noise(source)
+            #     data = recognizer.record(source)
+            # transcript = recognizer.recognize_google(data, key=None)
+            # session['transcript'] = transcript
             return redirect('/textanalysis')  # change in later/test
 
     return render_template('convertwav.html')
