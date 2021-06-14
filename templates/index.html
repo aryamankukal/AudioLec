@@ -535,6 +535,7 @@
 					<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
 					<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
 					<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
+					<div style="margin-bottom: 90px; font-size: 50px"><h1>Contact Us</h1></div>
 					<form action="/contactform" style="margin: auto" method="POST">
 						<!--{% if session['email_sent'] == True %}-->
 						<!--<h1>Success, email sent!</h1>-->
@@ -544,10 +545,10 @@
 						<div style="display: flex; justify-content: center">
 							<div style="margin-right: 10px">
 								<label for="">Email</label>
-								<input type="text" class="contactme" name="email" />
+								<input type="text" class="contactme" name="email" placeholder="johndoe@email.com"/>
 								<br />
 								<label for="">Subject</label>
-								<input type="text" class="contactme" name="subject" />
+								<input type="text" class="contactme" name="subject" placeholder=""/>
 								<br />
 							</div>
 							<div style="margin-left: 10px">
@@ -561,7 +562,7 @@
 								<br />
 							</div>
 						</div>
-						<input type="submit" />
+						<button id='btnSubmit' type="submit" onclick="submitFunction()">Submit</button>
 					</form>
 				</ul>
 				<!--<ul class="copyright">-->
@@ -607,6 +608,10 @@
 				} else {
 					mybutton.style.display = "none";
 				}
+			}
+
+			function submitFunction() {
+				$.bootstrapGrawl("This is a success message");
 			}
 
 			// When the user clicks on the button, scroll to the top of the document
