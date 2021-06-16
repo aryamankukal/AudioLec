@@ -7,8 +7,12 @@ import speech_recognition as sr
 from emailAnalysis import send_email
 from pydub import AudioSegment
 import math
-import os
-import glob
+# import os
+# import glob
+# import numpy as np
+import wave
+# import contextlib
+import librosa
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
@@ -141,31 +145,36 @@ def convertwav():
             # create recognizer object
             recognizer = sr.Recognizer()
 
+            audioFile = sr.AudioFile(file)
+
             # split files
-            split_wav = SplitWavAudioMubin(f"{os.path.dirname(__file__)}\\audiofiles", file)
-            split_wav.multiple_split(min_per_split=1)
+            # split_wav = SplitWavAudioMubin(f"{os.path.dirname(__file__)}\\audiofiles", file)
+            # split_wav.multiple_split(min_per_split=1)
 
             # loop through split files
-            session["transcript"] = ""
-            for wavfile in glob.glob(f"audiofiles/*.wav"):
-                audioFile = sr.AudioFile(wavfile)
-                with audioFile as source:
-                   recognizer.adjust_for_ambient_noise(source)
-                   data = recognizer.record(source)
-                   transcript = recognizer.recognize_google(data, key=None)
-                   session["transcript"] += transcript
+            # session["transcript"] = ""
+            # for wavfile in glob.glob(f"audiofiles/*.wav"):
+            #     audioFile = sr.AudioFile(wavfile)
+            #     with audioFile as source:
+            #        recognizer.adjust_for_ambient_noise(source)
+            #        data = recognizer.record(source)
+            #        transcript = recognizer.recognize_google(data, key=None)
+            #        session["transcript"] += transcript
 
-            filelist = [ f for f in os.listdir(f"audiofiles") if f.endswith(".wav")]
-            for indivfile in filelist:
-                os.remove(os.path.join(f"audiofiles", indivfile))
+            # filelist = [ f for f in os.listdir(f"audiofiles") if f.endswith(".wav")]
+            # for indivfile in filelist:
+            #     os.remove(os.path.join(f"audiofiles", indivfile))
 
-            # audioFile = sr.AudioFile(file)
-            # with audioFile as source:
-            #     recognizer.adjust_for_ambient_noise(source)
-            #     data = recognizer.record(source)
-            # transcript = recognizer.recognize_google(data, key=None)
-            # session['transcript'] = transcript
-            return redirect('/textanalysis')  # change in later/test
+
+            # ******************ORIGINAL CODE ****************************
+            audioFile = sr.AudioFile(file)
+            with audioFile as source:
+                recognizer.adjust_for_ambient_noise(source)
+                data = recognizer.record(source)
+            transcript = recognizer.recognize_google(data, key=None)
+            session['transcript'] = transcript
+
+            return redirect('/textanalysis')
 
     return render_template('convertwav.html')
 
