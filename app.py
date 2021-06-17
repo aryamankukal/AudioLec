@@ -134,6 +134,7 @@ def convertwav():
             transcript = recognizer.recognize_google(data, key=None)
             session['transcript'] = transcript
 
+
             return redirect('/textanalysis')
 
     return render_template('convertwav.html')
