@@ -51,7 +51,12 @@ def textanalysis():
             send_email(f"{subject} - Your AudioLec Lecture", session['transcript'], reciever,
                        'hackathon2020', 'audiolec4@gmail.com', session['videos'], session['keywords'])
         keywords = api.sample_analyze_entities(session['transcript'])
-        session['keywords'] = keywords
+        session["keywords"] = []
+
+        for x in range(0, len(keywords)):
+            if not keywords[x].isdigit():
+                session["keywords"].append(keywords[x])
+        
         if 'keywords' in session:
             for keyword in keywords:
                 video = getYT.searchVideoForKeyword(keyword)

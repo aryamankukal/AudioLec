@@ -20,7 +20,7 @@ def sample_analyze_entities(text_content):
     for ent in doc.ents:
         peoplePlacesOrganOther.append(ent.text)
 
-    return peoplePlacesOrganOther
+    return list(set(peoplePlacesOrganOther))
 
     # client = language_v1.LanguageServiceClient()
     # type_ = language_v1.Document.Type.PLAIN_TEXT
