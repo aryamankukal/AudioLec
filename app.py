@@ -5,8 +5,6 @@ import getYoutubeVideoLinks as getYT
 import emailer as email
 import speech_recognition as sr
 from emailAnalysis import send_email
-from pydub import AudioSegment
-import math
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
