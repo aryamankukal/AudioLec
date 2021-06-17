@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/css/convertwav.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/static/css/textanalysis.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/static/css/convertwav.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/textanalysis.css">
+		<title>Upload</title>
 
-    <title>Upload</title>
+		<link rel="icon" href="static/images/finalLogo.png" />
 
-    <link rel="icon" href="static/images/finalLogo.png">
-
-    <style>
-        /* @import url(fontawesome-all.min.css);
+		<style>
+			/* @import url(fontawesome-all.min.css);
         @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
         #speechContainer {
@@ -46,64 +49,59 @@
             text-align: center;
         } */
 
-        < !--.wrapper {
-            -->< !--width: 100%;
-            -->< !--
-            /* height: 100%; */
-            -->< !--height: 100%;
-            -->< !--bottom: 0px;
-            -->< !--position: absolute;
-            -->< !--background: linear-gradient(45deg, #222830, #1d1f21, #000000);
-            -->< !--background-size: 600% 100%;
-            -->< !--animation: gradient 3s linear infinite;
-            -->< !--animation-direction: alternate;
-            -->< !--outline: none;
-            -->< !--z-index: -2;
-            -->< !--
-        }
+			.wrapper {
+				width: 100%;
+				height: 100%;
+				bottom: 0px;
+				position: absolute;
+				background: linear-gradient(45deg, #222830, #1d1f21, #000000);
+				background-size: 600% 100%;
+				animation: gradient 3s linear infinite;
+				animation-direction: alternate;
+				outline: none;
+				z-index: -2;
+			}
 
-        -->< !--@keyframes gradient {
-            -->< !--0% {
-                -->< !--background-position: 0%--> < !--
-            }
+			@keyframes gradient {
+				0% {
+					background-position: 0%;
+				}
 
-            -->< !--100% {
-                -->< !--background-position: 100%--> < !--
-            }
+				100% {
+					background-position: 100%;
+				}
+			}
 
-            -->< !--
-        }
+			body {
+				background-color: #222830;
+			}
+		</style>
+	</head>
 
-        -->body {
-            background-color: #222830;
-        }
-    </style>
-</head>
+	<body>
+		<header id="header">
+			<h1><a href="/">AudioLec</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/record">Record</a></li>
+								<li><a href="/convertwav">Upload Recording</a></li>
+								<li><a href="/#three">Meet the Team</a></li>
+								<li><a href="/#footer">Contact Us</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-<body>
-    <header id="header">
-        <h1><a href="/">AudioLec</a></h1>
-        <nav id="nav">
-            <ul>
-                <li class="special">
-                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                    <div id="menu">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/record">Record</a></li>
-                            <li><a href="/convertwav">Upload Recording</a></li>
-                            <li><a href="/#three">Meet the Team</a></li>
-                            <li><a href="/#footer">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+		<!--<div class="wrapper"></div>-->
 
-    <!--<div class="wrapper"></div>-->
-
-    <!-- <div id="speechContainer" style="box-shadow: 10px 5px 10px #3b0c08;">
+		<!-- <div id="speechContainer" style="box-shadow: 10px 5px 10px #3b0c08;">
         <h1 style="margin-top: 7px; font-size: 20px;"><b>Upload New File</b></h1>
         <form method="post" enctype="multipart/form-data" style="margin-top: 40px;">
             <label class="custom-file-upload" for='file'
@@ -118,167 +116,195 @@
         </form>
     </div> -->
 
-    <form enctype="multipart/form-data" method="POST">
-        <div class="custom-file-upload" style="position: absolute; top: 45%; left: 35%;">
-            <!--<label for="file">File: </label>-->
-            <input type="file" id="file" name="myfiles[]" multiple />
-            <button id="submitButton"
-                style="background-color: #db4f4f; font-family: Lato, Arial; margin-top: 10px;
-                height: 3em; float: left;  outline: none; text-transform: uppercase; font-size: 16px; border: none; width: 100%;"><b
-                    style="color: #ffffff;font: inherit;">Get Analysis</b></button>
-        </div>
+		<form enctype="multipart/form-data" style="position: relative" method="POST">
+			<div
+				class="custom-file-upload"
+				style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)"
+			>
+				<!--<label for="file">File: </label>-->
+				<input type="file" id="file" name="myfiles[]" multiple />
+				<button
+					id="submitButton"
+					style="
+						background-color: #db4f4f;
+						font-family: Lato, Arial;
+						margin-top: 10px;
+						height: 3em;
+						float: left;
+						outline: none;
+						text-transform: uppercase;
+						font-size: 16px;
+						border: none;
+						width: 100%;
+					"
+				>
+					<b style="color: #ffffff; font: inherit">Get Analysis</b>
+				</button>
+			</div>
+		</form>
 
-    </form>
+		<script>
+			//Reference:
+			//https://www.onextrapixel.com/2012/12/10/how-to-create-a-custom-file-input-with-jquery-css3-and-php/
+			(function ($) {
+				// Browser supports HTML5 multiple file?
+				var multipleSupport = typeof $("<input/>")[0].multiple !== "undefined",
+					isIE = /msie/i.test(navigator.userAgent);
 
-    <script>
-        //Reference: 
-        //https://www.onextrapixel.com/2012/12/10/how-to-create-a-custom-file-input-with-jquery-css3-and-php/
-        ; (function ($) {
+				$.fn.customFile = function () {
+					return this.each(function () {
+						var $file = $(this).addClass("custom-file-upload-hidden"), // the original file input
+							$wrap = $('<div class="file-upload-wrapper">'),
+							$input = $('<input type="text" class="file-upload-input" />'),
+							// Button that will be used in non-IE browsers
+							$button = $(
+								'<button type="button" class="file-upload-button">Select a File</button>'
+							),
+							// Hack for IE
+							$label = $(
+								'<label class="file-upload-button" for="' +
+									$file[0].id +
+									'">Select a File</label>'
+							);
 
-            // Browser supports HTML5 multiple file?
-            var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
-                isIE = /msie/i.test(navigator.userAgent);
+						// Hide by shifting to the left so we
+						// can still trigger events
+						$file.css({
+							position: "absolute",
+							left: "-9999px",
+						});
 
-            $.fn.customFile = function () {
+						$wrap.insertAfter($file).append($file, $input, isIE ? $label : $button);
 
-                return this.each(function () {
+						// Prevent focus
+						$file.attr("tabIndex", -1);
+						$button.attr("tabIndex", -1);
 
-                    var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
-                        $wrap = $('<div class="file-upload-wrapper">'),
-                        $input = $('<input type="text" class="file-upload-input" />'),
-                        // Button that will be used in non-IE browsers
-                        $button = $('<button type="button" class="file-upload-button">Select a File</button>'),
-                        // Hack for IE
-                        $label = $('<label class="file-upload-button" for="' + $file[0].id + '">Select a File</label>');
+						$button.click(function () {
+							$file.focus().click(); // Open dialog
+						});
 
-                    // Hide by shifting to the left so we
-                    // can still trigger events
-                    $file.css({
-                        position: 'absolute',
-                        left: '-9999px'
-                    });
+						$file.change(function () {
+							var files = [],
+								fileArr,
+								filename;
 
-                    $wrap.insertAfter($file)
-                        .append($file, $input, (isIE ? $label : $button));
+							// If multiple is supported then extract
+							// all filenames from the file array
+							if (multipleSupport) {
+								fileArr = $file[0].files;
+								for (var i = 0, len = fileArr.length; i < len; i++) {
+									files.push(fileArr[i].name);
+								}
+								filename = files.join(", ");
 
-                    // Prevent focus
-                    $file.attr('tabIndex', -1);
-                    $button.attr('tabIndex', -1);
+								// If not supported then just take the value
+								// and remove the path to just show the filename
+							} else {
+								filename = $file.val().split("\\").pop();
+							}
 
-                    $button.click(function () {
-                        $file.focus().click(); // Open dialog
-                    });
+							$input
+								.val(filename) // Set the value
+								.attr("title", filename) // Show filename in title tootlip
+								.focus(); // Regain focus
+						});
 
-                    $file.change(function () {
+						$input.on({
+							blur: function () {
+								$file.trigger("blur");
+							},
+							keydown: function (e) {
+								if (e.which === 13) {
+									// Enter
+									if (!isIE) {
+										$file.trigger("click");
+									}
+								} else if (e.which === 8 || e.which === 46) {
+									// Backspace & Del
+									// On some browsers the value is read-only
+									// with this trick we remove the old input and add
+									// a clean clone with all the original events attached
+									$file.replaceWith(($file = $file.clone(true)));
+									$file.trigger("change");
+									$input.val("");
+								} else if (e.which === 9) {
+									// TAB
+									return;
+								} else {
+									// All other keys
+									return false;
+								}
+							},
+						});
+					});
+				};
 
-                        var files = [], fileArr, filename;
+				// Old browser fallback
+				if (!multipleSupport) {
+					$(document).on("change", "input.customfile", function () {
+						var $this = $(this),
+							// Create a unique ID so we
+							// can attach the label to the input
+							uniqId = "customfile_" + new Date().getTime(),
+							$wrap = $this.parent(),
+							// Filter empty input
+							$inputs = $wrap
+								.siblings()
+								.find(".file-upload-input")
+								.filter(function () {
+									return !this.value;
+								}),
+							$file = $(
+								'<input type="file" id="' +
+									uniqId +
+									'" name="' +
+									$this.attr("name") +
+									'"/>'
+							);
 
-                        // If multiple is supported then extract
-                        // all filenames from the file array
-                        if (multipleSupport) {
-                            fileArr = $file[0].files;
-                            for (var i = 0, len = fileArr.length; i < len; i++) {
-                                files.push(fileArr[i].name);
-                            }
-                            filename = files.join(', ');
+						// 1ms timeout so it runs after all other events
+						// that modify the value have triggered
+						setTimeout(function () {
+							// Add a new input
+							if ($this.val()) {
+								// Check for empty fields to prevent
+								// creating new inputs when changing files
+								if (!$inputs.length) {
+									$wrap.after($file);
+									$file.customFile();
+								}
+								// Remove and reorganize inputs
+							} else {
+								$inputs.parent().remove();
+								// Move the input so it's always last on the list
+								$wrap.appendTo($wrap.parent());
+								$wrap.find("input").focus();
+							}
+						}, 1);
+					});
+				}
+			})(jQuery);
 
-                            // If not supported then just take the value
-                            // and remove the path to just show the filename
-                        } else {
-                            filename = $file.val().split('\\').pop();
-                        }
+			$("input[type=file]").customFile();
+		</script>
 
-                        $input.val(filename) // Set the value
-                            .attr('title', filename) // Show filename in title tootlip
-                            .focus(); // Regain focus
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.scrollex.min.js"></script>
+		<script src="static/js/jquery.scrolly.min.js"></script>
+		<script src="static/js/browser.min.js"></script>
+		<script src="static/js/breakpoints.min.js"></script>
+		<script src="static/js/util.js"></script>
+		<script src="static/js/main.js"></script>
 
-                    });
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.2.3/firebase-app.js"></script>
 
-                    $input.on({
-                        blur: function () { $file.trigger('blur'); },
-                        keydown: function (e) {
-                            if (e.which === 13) { // Enter
-                                if (!isIE) { $file.trigger('click'); }
-                            } else if (e.which === 8 || e.which === 46) { // Backspace & Del
-                                // On some browsers the value is read-only
-                                // with this trick we remove the old input and add
-                                // a clean clone with all the original events attached
-                                $file.replaceWith($file = $file.clone(true));
-                                $file.trigger('change');
-                                $input.val('');
-                            } else if (e.which === 9) { // TAB
-                                return;
-                            } else { // All other keys
-                                return false;
-                            }
-                        }
-                    });
-
-                });
-
-            };
-
-            // Old browser fallback
-            if (!multipleSupport) {
-                $(document).on('change', 'input.customfile', function () {
-
-                    var $this = $(this),
-                        // Create a unique ID so we
-                        // can attach the label to the input
-                        uniqId = 'customfile_' + (new Date()).getTime(),
-                        $wrap = $this.parent(),
-
-                        // Filter empty input
-                        $inputs = $wrap.siblings().find('.file-upload-input')
-                            .filter(function () { return !this.value }),
-
-                        $file = $('<input type="file" id="' + uniqId + '" name="' + $this.attr('name') + '"/>');
-
-                    // 1ms timeout so it runs after all other events
-                    // that modify the value have triggered
-                    setTimeout(function () {
-                        // Add a new input
-                        if ($this.val()) {
-                            // Check for empty fields to prevent
-                            // creating new inputs when changing files
-                            if (!$inputs.length) {
-                                $wrap.after($file);
-                                $file.customFile();
-                            }
-                            // Remove and reorganize inputs
-                        } else {
-                            $inputs.parent().remove();
-                            // Move the input so it's always last on the list
-                            $wrap.appendTo($wrap.parent());
-                            $wrap.find('input').focus();
-                        }
-                    }, 1);
-
-                });
-            }
-
-        }(jQuery));
-
-        $('input[type=file]').customFile();
-    </script>
-
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.scrollex.min.js"></script>
-    <script src="static/js/jquery.scrolly.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.2.3/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+		<!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/8.2.3/firebase-analytics.js"></script>
+		<script src="/__/firebase/8.2.3/firebase-analytics.js"></script>
 
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-</body>
-
+		<!-- Initialize Firebase -->
+		<script src="/__/firebase/init.js"></script>
+	</body>
 </html>
