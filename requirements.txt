@@ -28,7 +28,6 @@ pooch==1.4.0
 preshed==3.0.5
 pycparser==2.20
 pydantic==1.7.4
-pydub==0.25.1
 pyparsing==2.4.7
 requests==2.25.1
 resampy==0.2.2

@@ -1,4 +1,3 @@
-from posixpath import split
 from flask import Flask, render_template, request, url_for, redirect, session
 import GoogleNLPAPI as api
 import getYoutubeVideoLinks as getYT
