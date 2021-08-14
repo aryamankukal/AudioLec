@@ -21,8 +21,18 @@
 
 		<link rel="icon" href="static/images/finalLogo.png" />
 
-
 		<style>
+			.contactusform {
+				display: flex;
+			}
+			@media screen and (max-width: 910px) {
+				.contactusform {
+					display: block;
+				}
+				.inputdivs {
+					width: 90%;
+				}
+			}
 			.row.heading h2 {
 				color: #fff;
 				font-size: 52.52px;
@@ -528,60 +538,78 @@
 			</section>
 
 			<!-- Footer -->
-			<footer style="height: auto" id="footer">
+			<!-- <footer style="height: auto; width: 100vw" id="footer">
 				<ul class="icons">
-					<!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
-					<!--<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
-					<!--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>-->
-					<!--<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
-					<!--<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>-->
-					<div style="margin-bottom: 90px; font-size: 50px"><h1>Contact Us</h1></div>
-					<form action="/contactform" style="margin: auto" method="POST">
-						<!--{% if session['email_sent'] == True %}-->
-						<!--<h1>Success, email sent!</h1>-->
-						<!--{% elif session['valid'] == False %}-->
-						<!--<h1>Please fill out the whole form</h1>-->
-						<!--{% endif %}-->
-						<div style="display: flex; justify-content: center">
-							<div style="margin-right: 10px">
-								<label for="">Email</label>
-								<input type="text" class="contactme" name="email" placeholder="johndoe@email.com"/>
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<div style="margin-bottom: 90px; font-size: 50px; width: 100%">
+						<h1>Contact Us</h1>
+					</div>
+					<form action="/contactform" style="margin: auto; width: 100%" method="POST">
+						{% if session['email_sent'] == True %}
+						<h1>Success, email sent!</h1>
+						{% elif session['valid'] == False %}
+						<h1>Please fill out the whole form</h1>
+						{% endif %}
+						<div class="contactusform" style="width: 100%; justify-content: center">
+							<div style="width: 100%; margin-right: 10px">
+								<label for="" style="width: 100%">Email</label>
+								<input
+									type="text"
+									class="inputdivs"
+									name="email"
+									placeholder="johndoe@email.com"
+								/>
 								<br />
-								<label for="">Subject</label>
-								<input type="text" class="contactme" name="subject" placeholder=""/>
+								<label for="" style="width: 100%">Subject</label>
+								<input
+									type="text"
+									class="inputdivs"
+									name="subject"
+									placeholder=""
+								/>
 								<br />
 							</div>
 							<div style="margin-left: 10px">
-								<label for="">How Can We Help You?</label>
+								<label for="" style="width: 100%">How Can We Help You?</label>
 								<input
 									type="text"
-									class="contactme"
+									class="inputdivs"
 									name="message"
-									style="height: 300px; padding-bottom: 250px"
+									style="height: 300px; width: auto; padding-bottom: 250px"
 								/>
 								<br />
 							</div>
 						</div>
-						<button id='btnSubmit' type="submit" onclick="submitFunction()">Submit</button>
+						<button id="btnSubmit" type="submit" onclick="submitFunction()">
+							Submit
+						</button>
 					</form>
 				</ul>
-				<!--<ul class="copyright">-->
-				<!--&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;-->
-				<!--&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;-->
-				<!--</ul>-->
-			</footer>
+				<ul class="copyright">
+				&lt;!&ndash;<li>&copy; Untitled</li>&ndash;&gt;
+				&lt;!&ndash;<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>&ndash;&gt;
+				</ul>
+			</footer> -->
 
-			<h1 style="margin-top: 150px; margin-left: 555px; font-size: 50px">Our Demo</h1>
+			<div style="display: flex; justify-content: center; align-items: center">
+				<div>
+					<h1 style="font-size: 50px; text-align: center">Our Demo</h1>
 
-			<iframe
-				style="margin-top: 30px; margin-bottom: 150px; margin-left: 475px"
-				width="500"
-				height="300"
-				src="https://www.youtube.com/embed/vqJR_MNoJP0"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			></iframe>
+					<iframe
+						style=""
+						width="500"
+						height="300"
+						src="https://www.youtube.com/embed/vqJR_MNoJP0"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				</div>
+			</div>
 		</div>
 
 		<script>

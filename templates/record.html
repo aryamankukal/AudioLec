@@ -1,114 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+	<!--js and css links-->
 
-<!--js and css links-->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Audio Recorder</title>
+		<link rel="stylesheet" href="{{url_for('static', filename='ourcss/style.css')}}" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Recorder</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='ourcss/style.css')}}">
+		<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+		<link rel="stylesheet" href="static/css/recorder.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+		<script src="https://stephino.github.io/dist/recorder.js"></script>
+		<script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
+		<link rel="stylesheet" href="static/ourcss/style.css" />
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-    <link rel="stylesheet" href="static/css/recorder.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js">
-    </script>
-    <script src="https://stephino.github.io/dist/recorder.js"></script>
-    <script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
-    <link rel="stylesheet" href="static/ourcss/style.css" />
-
-    <style>
-        /* .div {
+		<style>
+			/* .div {
             border: 3px solid #000000;
         } */
 
-        button {
-            width: 90px;
-            height: 90px;
-            font-size: 0;
-            background-color: red;
-            border-radius: 50px;
-            border-width: 1px;
-            position: absolute;
-            outline: none;
-            top: 45%;
-            left: 47%;
-        }
+			button {
+				width: 90px;
+				height: 90px;
+				font-size: 0;
+				background-color: red;
+				border-radius: 50px;
+				border-width: 1px;
+				position: absolute;
+				outline: none;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
 
-        .notRec {
-            background-color: red;
-            border: 3px solid #000000;
-        }
+			.notRec {
+				background-color: red;
+				border: 3px solid #000000;
+			}
 
-        .Rec:focus {
-            outline: none
-        }
+			.Rec:focus {
+				outline: none;
+			}
 
-        .Rec {
-            animation-name: pulse;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            width: 90px;
-            height: 90px;
-            font-size: 0;
-            border-width: 1px;
-            border: none;
-            border-radius: 50px;
-            /* margin: 18px; */
-            outline: none;
-            background-color: #ff0000;
-            border: 3px solid #000000;
-        }
+			.Rec {
+				animation-name: pulse;
+				animation-duration: 1.5s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				width: 90px;
+				height: 90px;
+				font-size: 0;
+				border-width: 1px;
+				border: none;
+				border-radius: 50px;
+				/* margin: 18px; */
+				outline: none;
+				background-color: #ff0000;
+				border: 3px solid #000000;
+			}
 
-        .controls {
-            outline: none;
-            border: none;
-            border-color: transparent;
-        }
+			.controls {
+				outline: none;
+				border: none;
+				border-color: transparent;
+			}
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.53);
-            }
+			@keyframes pulse {
+				0% {
+					box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.53);
+				}
 
-            65% {
-                box-shadow: 0px 0px 5px 13px rgba(255, 0, 0, 0.53);
-            }
+				65% {
+					box-shadow: 0px 0px 5px 13px rgba(255, 0, 0, 0.53);
+				}
 
-            90% {
-                box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
-            }
-        }
+				90% {
+					box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
+				}
+			}
 
-        .holder {
-            height: 100%;
-            width: 100%;
-            background-color: transparent;
-            border-radius: 7%;
-            position: absolute;
-        }
+			.holder {
+				height: 100%;
+				width: 100%;
+				background-color: transparent;
+				border-radius: 7%;
+				position: absolute;
+			}
 
-        .logo {
-            margin-top: 10px;
-            margin-left: 10px;
-            left: 10px;
-            top: 10px;
-        }
+			.logo {
+				margin-top: 10px;
+				margin-left: 10px;
+				left: 10px;
+				top: 10px;
+			}
 
-        body {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: #222830;
-            background-size: 600% 100%;
-            /* animation: gradient 3s linear infinite; */
-            /* animation-direction: alternate; */
-            outline: none;
-            z-index: -2;
-        }
+			body {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background: #222830;
+				background-size: 600% 100%;
+				/* animation: gradient 3s linear infinite; */
+				/* animation-direction: alternate; */
+				outline: none;
+				z-index: -2;
+			}
 
-        /* @keyframes gradient {
+			/* @keyframes gradient {
             0% {
                 background-position: 0%
             }
@@ -118,90 +117,86 @@
             }
         } */
 
-        .button {
-            height: 50px;
-            width: 80px;
-            /* display: none; */
-            position: fixed;
-            bottom: 15px;
-            right: 7px;
-            z-index: 99;
-            padding: 0px;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: transparent;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-            vertical-align: middle;
-            display: table-cell;
-        }
-    </style>
+			.button {
+				height: 50px;
+				width: 80px;
+				/* display: none; */
+				position: fixed;
+				bottom: 15px;
+				right: 7px;
+				z-index: 99;
+				padding: 0px;
+				font-size: 18px;
+				border: none;
+				outline: none;
+				background-color: transparent;
+				color: white;
+				cursor: pointer;
+				border-radius: 4px;
+				vertical-align: middle;
+				display: table-cell;
+			}
+		</style>
 
-    <link rel="icon" href="static/images/finalLogo.png">
+		<link rel="icon" href="static/images/finalLogo.png" />
+	</head>
 
-</head>
+	<body style="margin: 0px">
+		<header id="header">
+			<h1><a href="/">AudioLec</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/record">Record</a></li>
+								<li><a href="/convertwav">Upload Recording</a></li>
+								<li><a href="/#three">Meet the Team</a></li>
+								<li><a href="/#footer">Contact Us</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-<body style="margin: 0px;">
-    <header id="header">
-        <h1><a href="/">AudioLec</a></h1>
-        <nav id="nav">
-            <ul>
-                <li class="special">
-                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                    <div id="menu">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/record">Record</a></li>
-                            <li><a href="/convertwav">Upload Recording</a></li>
-                            <li><a href="/#three">Meet the Team</a></li>
-                            <li><a href="/#footer">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+		<!--gradient animated background-->
 
+		<!--recording button -->
+		<div class="center">
+			<div class="holder" id="holder">
+				<div data-role="controls" class="controls">
+					<button class="notRec" id="recordingButton" onclick="startRecording()"></button>
+					<div
+						data-role="recordings"
+						style="position: absolute; left: 50%; top: 65%; transform: translateX(-50%)"
+					></div>
+				</div>
+			</div>
+		</div>
 
-    <!--gradient animated background-->
+		<!--js link continued-->
+		<script src=" {{url_for('static', filename='ourscripts/index.js' )}}"></script>
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.scrollex.min.js"></script>
+		<script src="static/js/jquery.scrolly.min.js"></script>
+		<script src="static/js/browser.min.js"></script>
+		<script src="static/js/breakpoints.min.js"></script>
+		<script src="static/js/util.js"></script>
+		<script src="static/js/main.js"></script>
 
-    <!--recording button -->
-    <div class="center">
-        <div class="holder" id="holder">
-            <div data-role="controls" class="controls">
-                <button class="notRec" id="recordingButton" onclick="startRecording()"></button>
-                <div data-role="recordings" style="position: absolute; left: 39%; top: 17%;"></div>
-            </div>
-        </div>
-    </div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="/__/firebase/8.2.3/firebase-app.js"></script>
 
-
-
-
-    <!--js link continued-->
-    <script src=" {{url_for('static', filename='ourscripts/index.js' )}}">
-    </script>
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.scrollex.min.js"></script>
-    <script src="static/js/jquery.scrolly.min.js"></script>
-    <script src="static/js/browser.min.js"></script>
-    <script src="static/js/breakpoints.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <script src="static/js/main.js"></script>
-
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.2.3/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+		<!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/8.2.3/firebase-analytics.js"></script>
+		<script src="/__/firebase/8.2.3/firebase-analytics.js"></script>
 
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-</body>
-
+		<!-- Initialize Firebase -->
+		<script src="/__/firebase/init.js"></script>
+	</body>
 </html>
 
 <!--.wrapper {-->
