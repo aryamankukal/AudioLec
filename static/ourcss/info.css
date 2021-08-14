@@ -1,0 +1,14 @@
+:root {
+	--info-container-height: 102vh;
+}
+
+.info-section-container {
+	height: var(--info-container-height);
+	background-color: black;
+	padding: 0;
+}
+
+.info {
+	height: calc(var(--info-container-height) / 3);
+	background-color: white;
+}

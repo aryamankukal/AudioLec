@@ -214,6 +214,23 @@
 					box-shadow: 0 0 0 15px rgba(232, 76, 61, 0);
 				}
 			}
+
+			.button-container {
+				display: flex;
+				text-align: center;
+				justify-content: center;
+			}
+
+			.email-button {
+				font: inherit;
+				color: #ffffff;
+			}
+
+			@media screen and (max-width: 397px) {
+				.button-container {
+					flex-direction: column;
+				}
+			}
 		</style>
 
 		<link rel="icon" href="static/images/finalLogo.png" />
@@ -249,17 +266,16 @@
 				Analysis Complete
 			</h1>
 			<!-- <h2 style="color: white; text-align: center;">Please select an option:</h2> -->
-			<div style="display: flex; text-align: center; justify-content: center">
+			<div class="button-container">
 				<button
 					class="buttons"
 					onclick="copy()"
-					style="font: inherit; color: #ffffff; margin: 10px"
+					style="font: inherit; color: #ffffff; margin-bottom: 10px"
 				>
 					Copy Text
 				</button>
 				<button
-					class="buttons"
-					style="font: inherit; color: #ffffff; margin-top: 10px"
+					class="buttons email-button"
 					onclick="document.getElementById('id01').style.display='block'"
 				>
 					Email Analysis
@@ -318,7 +334,7 @@
 						</div>
 					</form>
 				</div>
-				<form style="margin: 10px">
+				<form style="margin-top: 10px">
 					<button class="buttons" style="font: inherit; color: #ffffff">
 						<a
 							href="https://doc.new"
@@ -368,7 +384,7 @@
 				rows="8"
 				cols="100"
 				id="transcript"
-				style="color: black; align-self: center; border-radius: 7px"
+				style="color: black; align-self: center; border-radius: 7px; max-width: 95%"
 			>
 {{session['transcript']}}</textarea
 			>
