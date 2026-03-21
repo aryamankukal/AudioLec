@@ -28,6 +28,7 @@ def index():
 
 @app.route('/record')
 def record():
+    print(session)
     return render_template('record.html')
 
 
@@ -37,6 +38,7 @@ def delscript():
     session.pop('summary', None)
     session.pop('keywords', None)
     return redirect('/convertwav')
+    print(session)
 
 
 @app.route('/textanalysis', methods=['GET', 'POST'])
@@ -75,6 +77,7 @@ def textanalysis():
 
 @app.route('/youtubevids')
 def youtubevids():
+    print(session)
     videos = []
     # people = []
     # places = []
