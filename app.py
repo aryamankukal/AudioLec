@@ -7,6 +7,7 @@ from emailAnalysis import send_email
 
 app = Flask(__name__)
 app.secret_key = 'thisisasecretkey'
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
 @app.route('/delallsessions')
 def delallsessions():
